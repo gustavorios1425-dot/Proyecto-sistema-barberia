@@ -12,9 +12,38 @@ namespace Proyecto_barberia
 {
     public partial class Form1 : Form
     {
+        public int clickX, clickY; //variables declardas para mover el form
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void panelSuperior_Paint(object sender, PaintEventArgs e)
+        {
+            panelSuperior.BackColor = Color.FromArgb(45,45,45);
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_MouseMove(object sender, MouseEventArgs e)
+        {
+            //Left mueve las ejes de las x
+            //Top mueve las ejes de las y
+            if(e.Button != MouseButtons.Left)
+            {
+                clickX = e.X;  clickY = e.Y;
+
+            } 
+            else
+            {
+                this.Left = this.Left + (e.X);
+                this.Top = this.Top + (e.Y);
+            }
+
+
         }
     }
 }
