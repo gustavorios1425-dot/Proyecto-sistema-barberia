@@ -28,6 +28,11 @@ namespace Proyecto_barberia
 
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         private void Form1_MouseMove(object sender, MouseEventArgs e)
         {
             //Left mueve las ejes de las x
