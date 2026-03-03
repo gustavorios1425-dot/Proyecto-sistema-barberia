@@ -63,6 +63,36 @@ namespace Proyecto_barberia.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cerrar {
+            get {
+                object obj = ResourceManager.GetObject("cerrar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cerrar_convertido_a_pequeño {
+            get {
+                object obj = ResourceManager.GetObject("cerrar-convertido-a-pequeño", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cerrar1 {
+            get {
+                object obj = ResourceManager.GetObject("cerrar1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Logo {
             get {
                 object obj = ResourceManager.GetObject("Logo", resourceCulture);
@@ -116,6 +146,26 @@ namespace Proyecto_barberia.Properties {
         internal static System.Drawing.Bitmap WhatsApp_Image_2026_02_10_at_12_30_11_PM_removebg_preview {
             get {
                 object obj = ResourceManager.GetObject("WhatsApp_Image_2026-02-10_at_12.30.11_PM-removebg-preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap X_removebg_preview {
+            get {
+                object obj = ResourceManager.GetObject("X-removebg-preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap X_removebg_preview_convertido_a_pequeño {
+            get {
+                object obj = ResourceManager.GetObject("X-removebg-preview-convertido-a-pequeño", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
