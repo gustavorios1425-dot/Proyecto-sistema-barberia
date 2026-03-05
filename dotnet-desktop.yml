@@ -1,0 +1,58 @@
+name: .NET Core Desktop
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+env:
+  Solution_Name: "Proyecto barberia.slnx"
+  Configuration: Release
+
+jobs:
+  build-and-test:
+    runs-on: windows-latest
+    strategy:
+      matrix:
+        configuration: [Debug, Release]
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Install .NET Core
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 8.0.x
+
+    - name: Setup MSBuild.exe
+      uses: microsoft/setup-msbuild@v2
+
+    - name: Restore dependencies
+      run: msbuild "$env:Solution_Name" /t:Restore /p:Configuration=$env:Configuration
+      env:
+        Configuration: ${{ matrix.configuration }}
+
+    - name: Build
+      run: msbuild "$env:Solution_Name" /p:Configuration=$env:Configuration
+      env:
+        Configuration: ${{ matrix.configuration }}
+
+    # PRUEBAS CON COBERTURA
+    - name: Test with coverage
+      run: |
+        dotnet test PruebasBarberia/PruebasBarberia.csproj `
+          --configuration ${{ matrix.configuration }} `
+          --no-build `
+          --collect:"XPlat Code Coverage" `
+          --results-directory TestResults/
+      shell: pwsh
+
+    # GENERAR REPORTE
+    - name: Generate coverage report
+      run: |
+        echo "## 📊 Cobertura de código" >> $GITHUB_STEP_SUMMARY
+        echo "Las pruebas se ejecutaron correctamente." >> $GITHUB_STEP_SUMMARY
