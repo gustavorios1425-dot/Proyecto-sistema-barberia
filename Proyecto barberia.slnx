@@ -1,3 +1,7 @@
 <Solution>
+  <Folder Name="/.github/" />
+  <Folder Name="/.github/workflows/">
+    <File Path="dotnet-desktop.yml" />
+  </Folder>
   <Project Path="Proyecto barberia/Proyecto barberia.csproj" Id="d99a4033-78ff-47e2-af5d-9197d98e845e" />
 </Solution>
