@@ -33,6 +33,11 @@ namespace Proyecto_barberia
             this.Close();
         }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
         private void Form1_MouseMove(object sender, MouseEventArgs e)
         {
             //Left mueve las ejes de las x
