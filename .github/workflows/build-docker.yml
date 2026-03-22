@@ -12,11 +12,20 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v2
+      
+      - name: Setup NuGet
+        uses: NuGet/setup-nuget@v2
+      
+      - name: List files
+        run: dir
+      
       - name: Restore NuGet packages
         run: nuget restore "Proyecto barberia.slnx"
       
       - name: Build solution
-        run: msbuild "Proyecto barberia.slnx" /p:Configuration=Release
+        run: msbuild "Proyecto barberia.slnx" /p:Configuration=Release /p:Platform="Any CPU"
       
       - name: Build Docker image
         run: docker build -f Dockerfile -t galactic10/barberia-app:latest .
