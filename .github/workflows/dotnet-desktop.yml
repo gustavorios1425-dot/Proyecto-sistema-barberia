@@ -80,11 +80,17 @@ jobs:
     - name: Build solution
       run: msbuild "Proyecto barberia.slnx" /p:Configuration=Release
 
-    - name: Run tests with coverage (MSBuild)
+    - name: Build test project
+      if: steps.find_test.outputs.found == 'true'
+      run: msbuild "${{ steps.find_test.outputs.test_project }}" /p:Configuration=Release
+
+    - name: Run tests with coverage
       if: steps.find_test.outputs.found == 'true'
       run: |
-        cd "${{ steps.find_test.outputs.test_folder }}"
-        msbuild ProyectoBarberia.Tests.csproj /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=./coverage.cobertura.xml /p:Configuration=Release
+        $testDll = Get-ChildItem -Recurse -Filter "*Tests.dll" | Where-Object { $_.FullName -like "*\bin\Release\*" } | Select-Object -First 1
+        if ($testDll) {
+          & "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\CommonExtensions\Microsoft\TestWindow\vstest.console.exe" $testDll.FullName /EnableCodeCoverage /Collect:"Code Coverage"
+        }
 
     - name: Install reportgenerator
       run: dotnet tool install -g dotnet-reportgenerator-globaltool
@@ -92,9 +98,9 @@ jobs:
     - name: Generate coverage report
       if: steps.find_test.outputs.found == 'true'
       run: |
-        $coverageFile = "${{ steps.find_test.outputs.test_folder }}/coverage.cobertura.xml"
-        if (Test-Path $coverageFile) {
-          reportgenerator -reports:$coverageFile -targetdir:coveragereport -reporttypes:TextSummary
+        $coverageFile = Get-ChildItem -Recurse -Filter "*.coverage" | Select-Object -First 1
+        if ($coverageFile) {
+          reportgenerator -reports:$coverageFile.FullName -targetdir:coveragereport -reporttypes:TextSummary
         } else {
           Write-Host "No coverage file found"
         }
