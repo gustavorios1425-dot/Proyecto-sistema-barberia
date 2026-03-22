@@ -58,11 +58,8 @@ jobs:
     - name: Setup NuGet
       uses: NuGet/setup-nuget@v2
 
-    - name: Restore NuGet packages
+    - name: Restore main solution
       run: nuget restore "Proyecto barberia.slnx"
-
-    - name: Build solution
-      run: msbuild "Proyecto barberia.slnx" /p:Configuration=Release
 
     - name: Find test project
       id: find_test
@@ -70,10 +67,18 @@ jobs:
         $testProj = Get-ChildItem -Recurse -Filter "*Tests*.csproj" | Select-Object -First 1
         if ($testProj) {
           echo "test_folder=$($testProj.DirectoryName)" >> $env:GITHUB_OUTPUT
+          echo "test_project=$($testProj.FullName)" >> $env:GITHUB_OUTPUT
           echo "found=true" >> $env:GITHUB_OUTPUT
         } else {
           echo "found=false" >> $env:GITHUB_OUTPUT
         }
+
+    - name: Restore test project packages
+      if: steps.find_test.outputs.found == 'true'
+      run: nuget restore "${{ steps.find_test.outputs.test_project }}"
+
+    - name: Build solution
+      run: msbuild "Proyecto barberia.slnx" /p:Configuration=Release
 
     - name: Run tests with coverage (MSBuild)
       if: steps.find_test.outputs.found == 'true'
