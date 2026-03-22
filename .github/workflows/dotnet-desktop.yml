@@ -36,7 +36,7 @@
 # For a complete CI/CD sample to get started with GitHub Action workflows for Desktop Applications,
 # refer to https://github.com/microsoft/github-actions-for-desktop-apps
 
-name: .NET Core Desktop
+name: .NET Desktop Build and Test with Coverage
 
 on:
   push:
@@ -45,48 +45,65 @@ on:
     branches: [ "master" ]
 
 jobs:
-  build:
-    strategy:
-      matrix:
-        configuration: [Debug, Release]
-
+  build-and-test:
     runs-on: windows-latest
 
-    env:
-      Solution_Name: "Proyecto barberia.slnx"
-      Configuration: ${{ matrix.configuration }}
-
     steps:
-    - name: Checkout
+    - name: Checkout code
       uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
 
-    - name: Install .NET Core
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: 8.0.x
-
-    - name: Setup MSBuild.exe
+    - name: Setup MSBuild
       uses: microsoft/setup-msbuild@v2
 
-    - name: Restore the application
-      run: msbuild "$env:Solution_Name" /t:Restore /p:Configuration=$env:Configuration
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v2
 
-    - name: Build the application
-      run: msbuild "$env:Solution_Name" /p:Configuration=$env:Configuration
+    - name: Restore NuGet packages
+      run: nuget restore "Proyecto-sistema-barberia.slnx"
 
-    - name: Execute unit tests with coverage
+    - name: Build solution
+      run: msbuild "Proyecto-sistema-barberia.slnx" /p:Configuration=Release
+
+    # Buscar proyecto de pruebas
+    - name: Find test project
+      id: find_test
       run: |
+        $testProj = Get-ChildItem -Recurse -Filter "*Tests*.csproj" | Select-Object -First 1
+        if ($testProj) {
+          echo "test_project=$($testProj.FullName)" >> $env:GITHUB_OUTPUT
+          echo "test_folder=$($testProj.DirectoryName)" >> $env:GITHUB_OUTPUT
+          echo "found=true" >> $env:GITHUB_OUTPUT
+        } else {
+          echo "found=false" >> $env:GITHUB_OUTPUT
+        }
+
+    # Agregar coverlet al proyecto de pruebas (si existe)
+    - name: Add coverlet to test project
+      if: steps.find_test.outputs.found == 'true'
+      run: |
+        cd "${{ steps.find_test.outputs.test_folder }}"
+        dotnet add package coverlet.msbuild --version 3.2.0
+        dotnet add package coverlet.collector --version 3.2.0
+
+    - name: Run tests with coverage
+      if: steps.find_test.outputs.found == 'true'
+      run: |
+        cd "${{ steps.find_test.outputs.test_folder }}"
         dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=./coverage.cobertura.xml
 
     - name: Install reportgenerator
-      run: dotnet tool install --global dotnet-reportgenerator-globaltool
+      run: dotnet tool install -g dotnet-reportgenerator-globaltool
 
     - name: Generate coverage report
-      run: reportgenerator -reports:coverage.cobertura.xml -targetdir:coveragereport
+      if: steps.find_test.outputs.found == 'true'
+      run: |
+        $coverageFile = "${{ steps.find_test.outputs.test_folder }}/coverage.cobertura.xml"
+        if (Test-Path $coverageFile) {
+          reportgenerator -reports:$coverageFile -targetdir:coveragereport -reporttypes:TextSummary
+        }
 
     - name: Upload coverage report
+      if: steps.find_test.outputs.found == 'true'
       uses: actions/upload-artifact@v4
       with:
         name: coverage-report
