@@ -59,10 +59,10 @@ jobs:
       uses: NuGet/setup-nuget@v2
 
     - name: Restore NuGet packages
-      run: nuget restore "Proyecto-sistema-barberia.slnx"
+      run: nuget restore "Proyecto barberia.slnx"
 
     - name: Build solution
-      run: msbuild "Proyecto-sistema-barberia.slnx" /p:Configuration=Release
+      run: msbuild "Proyecto barberia.slnx" /p:Configuration=Release
 
     # Buscar proyecto de pruebas
     - name: Find test project
