@@ -36,7 +36,7 @@
 # For a complete CI/CD sample to get started with GitHub Action workflows for Desktop Applications,
 # refer to https://github.com/microsoft/github-actions-for-desktop-apps
 
-name: .NET Desktop Build and Test with Coverage
+name: .NET Core Desktop
 
 on:
   push:
@@ -45,70 +45,51 @@ on:
     branches: [ "master" ]
 
 jobs:
-  build-and-test:
-    runs-on: windows-latest
+
+  build:
+
+    strategy:
+      matrix:
+        configuration: [Debug, Release]
+
+    runs-on: windows-latest  # For a list of available runner types, refer to
+                             # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
+
+    env:
+      Solution_Name: Prueba 2.0.slnx                            # Replace with your solution name, i.e. MyWpfApp.sln.
+      Test_Project_Path: your-test-project-path                 # Replace with the path to your test project, i.e. MyWpfApp.Tests\MyWpfApp.Tests.csproj.
+      Wap_Project_Directory: your-wap-project-directory-name    # Replace with the Wap project directory relative to the solution, i.e. MyWpfApp.Package.
+      Wap_Project_Path: your-wap-project-path                   # Replace with the path to your Wap project, i.e. MyWpf.App.Package\MyWpfApp.Package.wapproj.
 
     steps:
-    - name: Checkout code
+    - name: Checkout
       uses: actions/checkout@v4
-
-    - name: Setup MSBuild
-      uses: microsoft/setup-msbuild@v2
-
-    - name: Setup NuGet
-      uses: NuGet/setup-nuget@v2
-
-    - name: Restore main solution
-      run: nuget restore "Proyecto barberia.slnx"
-
-    - name: Find test project
-      id: find_test
-      run: |
-        $testProj = Get-ChildItem -Recurse -Filter "*Tests*.csproj" | Select-Object -First 1
-        if ($testProj) {
-          echo "test_folder=$($testProj.DirectoryName)" >> $env:GITHUB_OUTPUT
-          echo "test_project=$($testProj.FullName)" >> $env:GITHUB_OUTPUT
-          echo "found=true" >> $env:GITHUB_OUTPUT
-        } else {
-          echo "found=false" >> $env:GITHUB_OUTPUT
-        }
-
-    - name: Restore test project packages
-      if: steps.find_test.outputs.found == 'true'
-      run: nuget restore "${{ steps.find_test.outputs.test_project }}"
-
-    - name: Build solution
-      run: msbuild "Proyecto barberia.slnx" /p:Configuration=Release
-
-    - name: Build test project
-      if: steps.find_test.outputs.found == 'true'
-      run: msbuild "${{ steps.find_test.outputs.test_project }}" /p:Configuration=Release
-
-    - name: Run tests with coverage
-      if: steps.find_test.outputs.found == 'true'
-      run: |
-        $testDll = Get-ChildItem -Recurse -Filter "*Tests.dll" | Where-Object { $_.FullName -like "*\bin\Release\*" } | Select-Object -First 1
-        if ($testDll) {
-          & "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\CommonExtensions\Microsoft\TestWindow\vstest.console.exe" $testDll.FullName /EnableCodeCoverage /Collect:"Code Coverage"
-        }
-
-    - name: Install reportgenerator
-      run: dotnet tool install -g dotnet-reportgenerator-globaltool
-
-    - name: Generate coverage report
-      if: steps.find_test.outputs.found == 'true'
-      run: |
-        $coverageFile = Get-ChildItem -Recurse -Filter "*.coverage" | Select-Object -First 1
-        if ($coverageFile) {
-          reportgenerator -reports:$coverageFile.FullName -targetdir:coveragereport -reporttypes:TextSummary
-        } else {
-          Write-Host "No coverage file found"
-        }
-
-    - name: Upload coverage report
-      if: steps.find_test.outputs.found == 'true'
-      uses: actions/upload-artifact@v4
       with:
-        name: coverage-report
-        path: coveragereport
-      continue-on-error: true
+        fetch-depth: 0
+
+    # Install the .NET Core workload
+    - name: Install .NET Core
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 8.0.x
+
+    # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
+   # - name: Setup MSBuild.exe
+    #  uses: microsoft/setup-msbuild@v2
+
+    # Execute all unit tests in the solution
+    - name: Execute unit tests
+      run: dotnet test
+
+    # Restore the application to populate the obj folder with RuntimeIdentifiers
+    - name: Restore the application
+      run: msbuild "$env:Solution_Name" /t:Restore /p:Configuration=$env:Configuration
+      env:
+        Configuration: ${{ matrix.configuration }}
+
+    # Decode the base 64 encoded pfx and save the Signing_Certificate
+   # - name: Decode the pfx
+     # run: |
+     #   $pfx_cert_byte = [System.Convert]::FromBase64String("${{ secrets.Base64_Encoded_Pfx }}")
+       # $certificatePath = Join-Path -Path $env:Wap_Project_Directory -ChildPath GitHubActionsWorkflow.pfx
+     #   [IO.File]::WriteAllBytes("$certificatePath", $pfx_cert_byte)
