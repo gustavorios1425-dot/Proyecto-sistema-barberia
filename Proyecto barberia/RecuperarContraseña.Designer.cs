@@ -1,6 +1,6 @@
 ﻿namespace Proyecto_barberia
 {
-    partial class Form3
+    partial class RecuperarContraseña
     {
         /// <summary>
         /// Required designer variable.
@@ -35,9 +35,9 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -71,19 +71,22 @@
             // 
             this.linkLabel1.ActiveLinkColor = System.Drawing.Color.Blue;
             this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Font = new System.Drawing.Font("Inter", 10.2F, System.Drawing.FontStyle.Bold);
             this.linkLabel1.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(172)))), ((int)(((byte)(107)))));
-            this.linkLabel1.Location = new System.Drawing.Point(86, 181);
+            this.linkLabel1.Location = new System.Drawing.Point(59, 179);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(156, 16);
+            this.linkLabel1.Size = new System.Drawing.Size(218, 24);
             this.linkLabel1.TabIndex = 4;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Volver al inicio de sesión";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(172)))), ((int)(((byte)(107)))));
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Inter", 10.2F, System.Drawing.FontStyle.Bold);
             this.button1.Location = new System.Drawing.Point(63, 127);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(200, 39);
@@ -124,16 +127,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Recuperar contraseña";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Proyecto_barberia.Properties.Resources.Logo;
-            this.pictureBox1.Location = new System.Drawing.Point(209, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(346, 100);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -156,7 +149,17 @@
             this.label5.TabIndex = 3;
             this.label5.Text = "Legendary Barber";
             // 
-            // Form3
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Proyecto_barberia.Properties.Resources.Logo;
+            this.pictureBox1.Location = new System.Drawing.Point(209, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(346, 100);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
+            // RecuperarContraseña
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -167,8 +170,9 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Form3";
+            this.Name = "RecuperarContraseña";
             this.Text = "Form3";
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.RecuperarContraseña_MouseMove);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

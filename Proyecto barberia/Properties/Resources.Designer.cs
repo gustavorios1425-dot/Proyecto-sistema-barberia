@@ -113,6 +113,16 @@ namespace Proyecto_barberia.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap esconder {
+            get {
+                object obj = ResourceManager.GetObject("esconder", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_calendario_50 {
             get {
                 object obj = ResourceManager.GetObject("icons8-calendario-50", resourceCulture);
@@ -166,6 +176,16 @@ namespace Proyecto_barberia.Properties {
         internal static System.Drawing.Bitmap Logo {
             get {
                 object obj = ResourceManager.GetObject("Logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ojo_abierto {
+            get {
+                object obj = ResourceManager.GetObject("ojo-abierto", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

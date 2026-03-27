@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace Proyecto_barberia
 {
-    public partial class Form1 : Form
+    public partial class Inicio : Form
     {
-        public Form1()
+        public Inicio()
         {
             InitializeComponent();
         }
@@ -23,7 +23,7 @@ namespace Proyecto_barberia
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
-        private void Form1_MouseMove(object sender, MouseEventArgs e)
+        private void Inicio_MouseMove(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
