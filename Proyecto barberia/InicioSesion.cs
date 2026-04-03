@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
@@ -30,23 +31,7 @@ namespace Proyecto_barberia
 
 
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            if (textBox2.UseSystemPasswordChar)
-            {
-                // Contraseña oculta (puntos) → la mostramos en texto
-                textBox2.UseSystemPasswordChar = false;
-                // Ponemos ojo cerrado para indicar que ahora se puede ocultar
-                pictureBox1.Image = Properties.Resources.esconder;
-            }
-            else
-            {
-                // Contraseña visible → la volvemos a ocultar
-                textBox2.UseSystemPasswordChar = true;
-                // Ponemos ojo abierto para indicar que se puede mostrar
-                pictureBox1.Image = Properties.Resources.ojo_abierto;
-            }
-        }
+        
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -77,12 +62,63 @@ namespace Proyecto_barberia
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
+
+        private void btnIniciarSesion_Click(object sender, EventArgs e)
+        {
+            // Dentro del botón "Iniciar Sesión"
+            string correo = textBox1.Text;
+            string pass = textBox2.Text;
+
+            // Buscamos en la lista global
+            var user = DatosGlobales.Repositorio.ListaUsuarios
+                .FirstOrDefault(u => u.Correo == correo && u.Contrasena == pass);
+
+            if (user != null)
+            {
+                MessageBox.Show("¡Bienvenido " + user.Nombres + "!");
+                // Aquí abrirías tu formulario principal (Dashboard)
+                Inicio Ventana2 = new Inicio();
+                Ventana2.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Correo o contraseña incorrectos.");
+            }
+
+            
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            if (textBox2.UseSystemPasswordChar)
+            {
+                // Contraseña oculta (puntos) → la mostramos en texto
+                textBox2.UseSystemPasswordChar = false;
+                // Ponemos ojo cerrado para indicar que ahora se puede ocultar
+                pictureBox1.Image = Properties.Resources.esconder;
+            }
+            else
+            {
+                // Contraseña visible → la volvemos a ocultar
+                textBox2.UseSystemPasswordChar = true;
+                // Ponemos ojo abierto para indicar que se puede mostrar
+                pictureBox1.Image = Properties.Resources.ojo_abierto;
+            }
+        }
+
         private void Form1_MouseMove(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
+        
 
     }
 

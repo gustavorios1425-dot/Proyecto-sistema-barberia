@@ -28,5 +28,38 @@ namespace Proyecto_barberia
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide(); // Oculta el formulario actual
+            InicioSesion frm = new InicioSesion();
+            frm.ShowDialog();
+            this.Close();
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Hide(); // Oculta el formulario actual
+            Citas frm = new Citas();
+            frm.ShowDialog();
+            this.Close(); // Cierra el formulario actual
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Hide(); // Oculta el formulario actual
+            Cliente frm = new Cliente();
+            frm.ShowDialog();
+            this.Close(); // Cierra el formulario actual
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Hide(); // Oculta el formulario actual
+            Bitacora frm = new Bitacora();
+            frm.ShowDialog();
+            this.Close();
+        }
     }
 }
