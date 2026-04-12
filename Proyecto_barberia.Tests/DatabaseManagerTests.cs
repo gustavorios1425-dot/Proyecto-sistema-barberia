@@ -8,7 +8,7 @@ using Proyecto_barberia.Database;
 
 namespace Proyecto_barberia.Tests
 {
-    public class DatabaseManagerTests // Pruebas unitarias para el DatabaseManager 
+    public class DatabaseManagerTests // Pruebas unitarias para DatabaseManager 
     {
         [Fact]
         public void Singleton_DevolverMismaInstancia()
