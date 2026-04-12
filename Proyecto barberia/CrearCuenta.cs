@@ -8,6 +8,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Proyecto_barberia.DatosGlobales;
 
 namespace Proyecto_barberia
 {
@@ -58,6 +59,30 @@ namespace Proyecto_barberia
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void btnCrearCuenta_Click(object sender, EventArgs e)
+        {
+            // Dentro del botón "Crear cuenta"
+            var nuevoUsuario = new DatosGlobales.Usuario()
+            {
+                Nombres = textBox1.Text,
+                Apellidos = textBox2.Text,
+                Correo = textBox3.Text,
+                Contrasena = textBox4.Text
+            };
+
+            // Accedemos así: ClasePadre.ClaseHija.Lista
+            DatosGlobales.Repositorio.ListaUsuarios.Add(nuevoUsuario);
+
+            MessageBox.Show("¡Usuario guardado con éxito!");
+
+            // Navegación que ya corregimos:
+            InicioSesion ventana = new InicioSesion();
+            ventana.Show();
+            this.Hide();
+            
+
         }
     }
 }

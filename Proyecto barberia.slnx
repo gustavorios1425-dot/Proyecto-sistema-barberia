@@ -4,4 +4,5 @@
     <File Path="dotnet-desktop.yml" />
   </Folder>
   <Project Path="Proyecto barberia/Proyecto barberia.csproj" Id="d99a4033-78ff-47e2-af5d-9197d98e845e" />
+  <Project Path="Proyecto_barberia.Tests/Proyecto_barberia.Tests.csproj" Id="9864ddb8-c5b1-46a5-86a2-2c346e9a74e0" />
 </Solution>

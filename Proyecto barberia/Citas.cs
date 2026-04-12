@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace Proyecto_barberia
 {
-    public partial class Form1 : Form
+    public partial class Citas : Form
     {
-        public Form1()
+        public Citas()
         {
             InitializeComponent();
         }
@@ -27,6 +27,14 @@ namespace Proyecto_barberia
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide(); // Oculta el formulario actual
+            NuevaCita frm = new NuevaCita();
+            frm.ShowDialog();
+            this.Close(); // Cierra el formulario actual
         }
     }
 }
