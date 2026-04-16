@@ -10,7 +10,9 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <Content Include="umagenbarber.ico" />
+	  <Compile Remove=".github\**" />
+	  <EmbeddedResource Remove=".github\**" />
+	  <None Remove=".github\**" />
 	</ItemGroup>
 
 	<ItemGroup>
