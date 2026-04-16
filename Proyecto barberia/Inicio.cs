@@ -76,5 +76,10 @@ namespace Proyecto_barberia
             }
             this.Show(); // al cerrar Cliente, muestra Inicio nuevamente
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

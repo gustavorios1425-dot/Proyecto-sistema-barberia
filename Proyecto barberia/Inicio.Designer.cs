@@ -29,32 +29,32 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnCerrarSesion = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.btnBitacora = new System.Windows.Forms.Button();
             this.btnClientes = new System.Windows.Forms.Button();
             this.btnCitas = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnCerrarSesion = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -69,17 +69,6 @@
             this.panel1.Size = new System.Drawing.Size(913, 96);
             this.panel1.TabIndex = 0;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Proyecto_barberia.Properties.Resources.Logo;
-            this.pictureBox1.Location = new System.Drawing.Point(14, 8);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(137, 79);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -90,24 +79,6 @@
             this.label1.Size = new System.Drawing.Size(235, 29);
             this.label1.TabIndex = 1;
             this.label1.Text = "Legendary Barber";
-            // 
-            // btnCerrarSesion
-            // 
-            this.btnCerrarSesion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(172)))), ((int)(((byte)(107)))));
-            this.btnCerrarSesion.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(172)))), ((int)(((byte)(107)))));
-            this.btnCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrarSesion.ForeColor = System.Drawing.Color.Black;
-            this.btnCerrarSesion.Image = global::Proyecto_barberia.Properties.Resources.Cerrar_sesion1;
-            this.btnCerrarSesion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCerrarSesion.Location = new System.Drawing.Point(743, 25);
-            this.btnCerrarSesion.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnCerrarSesion.Name = "btnCerrarSesion";
-            this.btnCerrarSesion.Size = new System.Drawing.Size(155, 44);
-            this.btnCerrarSesion.TabIndex = 0;
-            this.btnCerrarSesion.Text = "Cerrar sesión";
-            this.btnCerrarSesion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCerrarSesion.UseVisualStyleBackColor = false;
-            this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
             // 
             // panel2
             // 
@@ -130,19 +101,6 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "0";
             // 
-            // label2
-            // 
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.DimGray;
-            this.label2.Image = global::Proyecto_barberia.Properties.Resources.icons8_calendario_50;
-            this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label2.Location = new System.Drawing.Point(3, 14);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(156, 69);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Citas";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
@@ -163,19 +121,6 @@
             this.label5.Size = new System.Drawing.Size(112, 49);
             this.label5.TabIndex = 1;
             this.label5.Text = "0";
-            // 
-            // label4
-            // 
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold);
-            this.label4.ForeColor = System.Drawing.Color.DimGray;
-            this.label4.Image = global::Proyecto_barberia.Properties.Resources.icons8_clientes_50;
-            this.label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label4.Location = new System.Drawing.Point(3, 14);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(158, 69);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "    Clientes";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel4
             // 
@@ -198,19 +143,6 @@
             this.label7.TabIndex = 1;
             this.label7.Text = "0";
             // 
-            // label6
-            // 
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold);
-            this.label6.ForeColor = System.Drawing.Color.DimGray;
-            this.label6.Image = global::Proyecto_barberia.Properties.Resources.icons8_medalla_50__1_;
-            this.label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label6.Location = new System.Drawing.Point(3, 14);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(158, 69);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "         Legendarios";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
@@ -231,19 +163,6 @@
             this.label9.Size = new System.Drawing.Size(112, 49);
             this.label9.TabIndex = 1;
             this.label9.Text = "0";
-            // 
-            // label8
-            // 
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold);
-            this.label8.ForeColor = System.Drawing.Color.DimGray;
-            this.label8.Image = global::Proyecto_barberia.Properties.Resources.icons8_marcapáginas_50;
-            this.label8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label8.Location = new System.Drawing.Point(3, 14);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(158, 69);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "    Bitácora";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel6
             // 
@@ -302,10 +221,92 @@
             this.btnCitas.UseVisualStyleBackColor = false;
             this.btnCitas.Click += new System.EventHandler(this.btnCitas_Click);
             // 
+            // label8
+            // 
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold);
+            this.label8.ForeColor = System.Drawing.Color.DimGray;
+            this.label8.Image = global::Proyecto_barberia.Properties.Resources.icons8_marcapáginas_50;
+            this.label8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label8.Location = new System.Drawing.Point(3, 14);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(158, 69);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "    Bitácora";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label6
+            // 
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold);
+            this.label6.ForeColor = System.Drawing.Color.DimGray;
+            this.label6.Image = global::Proyecto_barberia.Properties.Resources.icons8_medalla_50__1_;
+            this.label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label6.Location = new System.Drawing.Point(3, 14);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(158, 69);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "         Legendarios";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label4
+            // 
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold);
+            this.label4.ForeColor = System.Drawing.Color.DimGray;
+            this.label4.Image = global::Proyecto_barberia.Properties.Resources.icons8_clientes_50;
+            this.label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label4.Location = new System.Drawing.Point(3, 14);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(158, 69);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "    Clientes";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.DimGray;
+            this.label2.Image = global::Proyecto_barberia.Properties.Resources.icons8_calendario_50;
+            this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label2.Location = new System.Drawing.Point(5, 14);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(156, 69);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Citas";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Proyecto_barberia.Properties.Resources.Logo;
+            this.pictureBox1.Location = new System.Drawing.Point(14, 8);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(137, 79);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnCerrarSesion
+            // 
+            this.btnCerrarSesion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(172)))), ((int)(((byte)(107)))));
+            this.btnCerrarSesion.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(172)))), ((int)(((byte)(107)))));
+            this.btnCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCerrarSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
+            this.btnCerrarSesion.ForeColor = System.Drawing.Color.Black;
+            this.btnCerrarSesion.Image = global::Proyecto_barberia.Properties.Resources.Cerrar_sesion1;
+            this.btnCerrarSesion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCerrarSesion.Location = new System.Drawing.Point(743, 25);
+            this.btnCerrarSesion.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnCerrarSesion.Name = "btnCerrarSesion";
+            this.btnCerrarSesion.Size = new System.Drawing.Size(155, 44);
+            this.btnCerrarSesion.TabIndex = 0;
+            this.btnCerrarSesion.Text = "Cerrar sesión";
+            this.btnCerrarSesion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCerrarSesion.UseVisualStyleBackColor = false;
+            this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
+            // 
             // Inicio
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.ClientSize = new System.Drawing.Size(908, 562);
             this.Controls.Add(this.panel6);
@@ -321,12 +322,12 @@
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Inicio_MouseMove);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
