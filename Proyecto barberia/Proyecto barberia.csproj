@@ -6,13 +6,17 @@
 		<UseWindowsForms>true</UseWindowsForms>
 		<EnableWindowsTargeting>true</EnableWindowsTargeting>
 		<GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
-		<ApplicationIcon>umagenbarber.ico</ApplicationIcon>
+		<ApplicationIcon>Resources\umagenbarber.ico</ApplicationIcon>
 	</PropertyGroup>
 
 	<ItemGroup>
 	  <Compile Remove=".github\**" />
 	  <EmbeddedResource Remove=".github\**" />
 	  <None Remove=".github\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Include="Resources\umagenbarber.ico" />
 	</ItemGroup>
 
 	<ItemGroup>
