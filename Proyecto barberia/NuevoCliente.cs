@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Proyecto_barberia.Entities;
+using Proyecto_barberia.Repositories;
+
 
 namespace Proyecto_barberia
 {
@@ -15,6 +18,47 @@ namespace Proyecto_barberia
         public NuevoCliente()
         {
             InitializeComponent();
+        }
+
+        private void btnCrearCliente_Click(object sender, EventArgs e)
+        {
+            // Validar campos obligatorios
+            if (string.IsNullOrWhiteSpace(txtNombre.Text))
+            {
+                MessageBox.Show("El nombre completo es obligatorio.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(txtTel.Text))
+            {
+                MessageBox.Show("El teléfono es obligatorio.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var nuevoCliente = new ClienteEntidad
+            {
+                NombreCompleto = txtNombre.Text.Trim(),
+                Telefono = txtTel.Text.Trim(),
+                Email = string.IsNullOrWhiteSpace(txtEmail.Text) ? null : txtEmail.Text.Trim()
+            };
+
+            var repo = new ClienteRepository();
+            int id = repo.Insertar(nuevoCliente);
+
+            if (id > 0)
+            {
+                MessageBox.Show($"Cliente '{nuevoCliente.NombreCompleto}' guardado con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Error al guardar el cliente. Verifique que el teléfono no esté duplicado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnCerrarNueCli_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

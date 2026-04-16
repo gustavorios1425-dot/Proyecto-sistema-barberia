@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Proyecto_barberia.Repositories;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,14 +16,31 @@ namespace Proyecto_barberia
         public Cliente()
         {
             InitializeComponent();
+            CargarListaClientes();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnNuevoCliente_Click(object sender, EventArgs e)
         {
-            this.Hide(); // Oculta el formulario actual
-            NuevoCliente frm = new NuevoCliente();
-            frm.ShowDialog();
-            this.Close(); // Cierra el formulario actual
+            using (NuevoCliente frm = new NuevoCliente())
+            {
+                // Abre NuevoCliente como diálogo modal; Cliente se queda detrás
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+                    // Si se guardó un cliente, refrescar la lista
+                    CargarListaClientes(); // método que llena el DataGridView
+                }
+            }
+        }
+
+        private void CargarListaClientes()
+        {
+            var repo = new ClienteRepository();
+            var clientes = repo.ObtenerTodos();
+            dataGridViewClientes.DataSource = null;
+            dataGridViewClientes.DataSource = clientes;
+            // Opcional: ocultar columnas que no quieras mostrar
+            if (dataGridViewClientes.Columns.Contains("ID_Cliente"))
+                dataGridViewClientes.Columns["ID_Cliente"].Visible = false;
         }
     }
 }
