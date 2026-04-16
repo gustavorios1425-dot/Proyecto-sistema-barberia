@@ -225,20 +225,20 @@
             // 
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold);
             this.label8.ForeColor = System.Drawing.Color.DimGray;
-            this.label8.Image = global::Proyecto_barberia.Properties.Resources.icons8_marcapáginas_50;
+            this.label8.Image = global::Proyecto_barberia.Properties.Resources.LibroAbierto;
             this.label8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label8.Location = new System.Drawing.Point(3, 14);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(158, 69);
             this.label8.TabIndex = 0;
-            this.label8.Text = "    Bitácora";
+            this.label8.Text = "   Bitácora";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label6
             // 
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold);
             this.label6.ForeColor = System.Drawing.Color.DimGray;
-            this.label6.Image = global::Proyecto_barberia.Properties.Resources.icons8_medalla_50__1_;
+            this.label6.Image = global::Proyecto_barberia.Properties.Resources.Medalla;
             this.label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label6.Location = new System.Drawing.Point(3, 14);
             this.label6.Name = "label6";
@@ -251,7 +251,7 @@
             // 
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.DimGray;
-            this.label4.Image = global::Proyecto_barberia.Properties.Resources.icons8_clientes_50;
+            this.label4.Image = global::Proyecto_barberia.Properties.Resources.Clientes;
             this.label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label4.Location = new System.Drawing.Point(3, 14);
             this.label4.Name = "label4";
@@ -264,11 +264,11 @@
             // 
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.DimGray;
-            this.label2.Image = global::Proyecto_barberia.Properties.Resources.icons8_calendario_50;
+            this.label2.Image = global::Proyecto_barberia.Properties.Resources.Calendario;
             this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label2.Location = new System.Drawing.Point(5, 14);
+            this.label2.Location = new System.Drawing.Point(3, 14);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(156, 69);
+            this.label2.Size = new System.Drawing.Size(158, 69);
             this.label2.TabIndex = 1;
             this.label2.Text = "Citas";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -292,7 +292,7 @@
             this.btnCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCerrarSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
             this.btnCerrarSesion.ForeColor = System.Drawing.Color.Black;
-            this.btnCerrarSesion.Image = global::Proyecto_barberia.Properties.Resources.Cerrar_sesion1;
+            this.btnCerrarSesion.Image = global::Proyecto_barberia.Properties.Resources.CerrarSesion;
             this.btnCerrarSesion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCerrarSesion.Location = new System.Drawing.Point(743, 25);
             this.btnCerrarSesion.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
