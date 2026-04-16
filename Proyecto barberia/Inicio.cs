@@ -29,37 +29,52 @@ namespace Proyecto_barberia
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnCerrarSesion_Click(object sender, EventArgs e)
         {
-            this.Hide(); // Oculta el formulario actual
-            InicioSesion frm = new InicioSesion();
-            frm.ShowDialog();
-            this.Close();
+            // Buscar la instancia del login (está oculta)
+            var login = Application.OpenForms.OfType<InicioSesion>().FirstOrDefault();
+            if (login != null)
+            {
+                login.LimpiarCampos();
+                login.Show();  // Muestra el login nuevamente
+            }
+            else
+            {
+                // Por si acaso, crear uno nuevo
+                new InicioSesion().Show();
+            }
+            this.Close(); // Cierra el menú principal (el login sigue vivo)
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnCitas_Click(object sender, EventArgs e)
         {
-            this.Hide(); // Oculta el formulario actual
-            Citas frm = new Citas();
-            frm.ShowDialog();
-            this.Close(); // Cierra el formulario actual
+            this.Hide(); // oculta Inicio mientras está el hijo
+            using (Citas frm = new Citas())
+            {
+                frm.ShowDialog();
+            }
+            this.Show(); // al cerrar Cliente, muestra Inicio nuevamente
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void btnClientes_Click(object sender, EventArgs e)
         {
-            this.Hide(); // Oculta el formulario actual
-            Cliente frm = new Cliente();
-            frm.ShowDialog();
-            this.Close(); // Cierra el formulario actual
+            this.Hide(); // oculta Inicio mientras está el hijo
+            using (Cliente frm = new Cliente())
+            {
+                frm.ShowDialog();
+            }
+            this.Show(); // al cerrar Cliente, muestra Inicio nuevamente
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void btnBitacora_Click(object sender, EventArgs e)
         {
-            this.Hide(); // Oculta el formulario actual
-            Bitacora frm = new Bitacora();
-            frm.ShowDialog();
-            this.Close();
+            this.Hide(); // oculta Inicio mientras está el hijo
+            using (Bitacora frm = new Bitacora())
+            {
+                frm.ShowDialog();
+            }
+            this.Show(); // al cerrar Cliente, muestra Inicio nuevamente
         }
     }
 }

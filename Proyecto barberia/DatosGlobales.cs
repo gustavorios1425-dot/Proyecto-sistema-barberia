@@ -8,6 +8,11 @@ namespace Proyecto_barberia
 {
     internal class DatosGlobales
     {
+        public static int UsuarioActual { get; set; }   // ID_Usuario
+        public static string RolActual { get; set; }    // 'administrador' o 'barbero'
+        public static string NombreUsuario { get; set; } // para mostrar en UI
+
+        /*
         public class Usuario
         {
             public string Nombres { get; set; }
@@ -21,5 +26,6 @@ namespace Proyecto_barberia
             // Aquí se guardarán los usuarios mientras el programa esté ejecutándose
             public static List<Usuario> ListaUsuarios = new List<Usuario>();
         }
+        */
     }
 }

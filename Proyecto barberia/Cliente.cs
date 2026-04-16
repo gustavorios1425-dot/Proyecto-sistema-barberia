@@ -42,5 +42,10 @@ namespace Proyecto_barberia
             if (dataGridViewClientes.Columns.Contains("ID_Cliente"))
                 dataGridViewClientes.Columns["ID_Cliente"].Visible = false;
         }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

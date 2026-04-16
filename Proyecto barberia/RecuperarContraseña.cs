@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Proyecto_barberia.Database;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SQLite;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -18,11 +20,8 @@ namespace Proyecto_barberia
             InitializeComponent();
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void linkVolver_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            this.Hide(); // Oculta el formulario actual
-            InicioSesion frm = new InicioSesion();
-            frm.ShowDialog();
             this.Close(); // Cierra el formulario actual
         }
 
@@ -35,6 +34,52 @@ namespace Proyecto_barberia
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRecuperar_Click(object sender, EventArgs e)
+        {
+            string emailOrUser = txtUsuario.Text.Trim(); // Puede ser nombre de usuario
+
+            if (string.IsNullOrEmpty(emailOrUser))
+            {
+                MessageBox.Show("Ingrese su nombre de usuario.", "Campo requerido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            using (var conn = DatabaseManager.Instance.GetConnection())
+            {
+                conn.Open();
+                string sql = "SELECT NombreUsuario, Password FROM USUARIO WHERE NombreUsuario = @user";
+                using (var cmd = new SQLiteCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@user", emailOrUser);
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            string usuario = reader.GetString(0);
+                            string password = reader.GetString(1);
+                            // Mostrar la contraseña (solo para propósito académico)
+                            MessageBox.Show($"Su contraseña es: {password}\n\nGuárdela en un lugar seguro.", "Recuperación exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se encontró un usuario con ese nombre.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
         }
     }
 }

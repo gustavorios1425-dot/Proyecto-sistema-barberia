@@ -17,16 +17,8 @@ namespace Proyecto_barberia
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
-            // Creamos el formulario de registro pero NO lo metemos en Run() todavía
-            CrearCuenta registro = new CrearCuenta();
-
-            // Si el registro se cierra o se oculta, el programa sigue vivo
-            registro.Show();
-
-            // Esta línea mantiene el programa funcionando aunque ocultes ventanas
-            Application.Run();
-
+            // Iniciar con el formulario de login
+            Application.Run(new InicioSesion());
         }
     }
 }
