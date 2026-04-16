@@ -6,7 +6,12 @@
 		<UseWindowsForms>true</UseWindowsForms>
 		<EnableWindowsTargeting>true</EnableWindowsTargeting>
 		<GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
+		<ApplicationIcon>umagenbarber.ico</ApplicationIcon>
 	</PropertyGroup>
+
+	<ItemGroup>
+	  <Content Include="umagenbarber.ico" />
+	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="System.Data.SQLite.Core" Version="1.0.119.0" />
