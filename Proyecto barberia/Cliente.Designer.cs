@@ -30,12 +30,7 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.dataGridViewClientes = new System.Windows.Forms.DataGridView();
-            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Alnombres = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Alapellidos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Altelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Alemail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvClientes = new System.Windows.Forms.DataGridView();
             this.btnNuevoCliente = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -44,23 +39,23 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnVolver = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClientes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dataGridViewClientes
+            // dgvClientes
             // 
-            this.dataGridViewClientes.AllowDrop = true;
-            this.dataGridViewClientes.AllowUserToAddRows = false;
-            this.dataGridViewClientes.AllowUserToDeleteRows = false;
-            this.dataGridViewClientes.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dataGridViewClientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewClientes.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.dataGridViewClientes.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridViewClientes.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvClientes.AllowDrop = true;
+            this.dgvClientes.AllowUserToAddRows = false;
+            this.dgvClientes.AllowUserToDeleteRows = false;
+            this.dgvClientes.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dgvClientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvClientes.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.dgvClientes.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvClientes.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -68,14 +63,8 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewClientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridViewClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colID,
-            this.Alnombres,
-            this.Alapellidos,
-            this.Altelefono,
-            this.Alemail});
+            this.dgvClientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -83,55 +72,18 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(157)))), ((int)(((byte)(96)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewClientes.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridViewClientes.EnableHeadersVisualStyles = false;
-            this.dataGridViewClientes.Location = new System.Drawing.Point(3, 113);
-            this.dataGridViewClientes.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.dataGridViewClientes.Name = "dataGridViewClientes";
-            this.dataGridViewClientes.ReadOnly = true;
-            this.dataGridViewClientes.RowHeadersVisible = false;
-            this.dataGridViewClientes.RowHeadersWidth = 51;
-            this.dataGridViewClientes.RowTemplate.Height = 35;
-            this.dataGridViewClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewClientes.Size = new System.Drawing.Size(1032, 286);
-            this.dataGridViewClientes.TabIndex = 9;
-            // 
-            // colID
-            // 
-            this.colID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colID.HeaderText = "ID";
-            this.colID.MinimumWidth = 6;
-            this.colID.Name = "colID";
-            this.colID.ReadOnly = true;
-            this.colID.Visible = false;
-            // 
-            // Alnombres
-            // 
-            this.Alnombres.HeaderText = "Nombres";
-            this.Alnombres.MinimumWidth = 6;
-            this.Alnombres.Name = "Alnombres";
-            this.Alnombres.ReadOnly = true;
-            // 
-            // Alapellidos
-            // 
-            this.Alapellidos.HeaderText = "Apellidos";
-            this.Alapellidos.MinimumWidth = 6;
-            this.Alapellidos.Name = "Alapellidos";
-            this.Alapellidos.ReadOnly = true;
-            // 
-            // Altelefono
-            // 
-            this.Altelefono.HeaderText = "Telefono";
-            this.Altelefono.MinimumWidth = 6;
-            this.Altelefono.Name = "Altelefono";
-            this.Altelefono.ReadOnly = true;
-            // 
-            // Alemail
-            // 
-            this.Alemail.HeaderText = "Email";
-            this.Alemail.MinimumWidth = 6;
-            this.Alemail.Name = "Alemail";
-            this.Alemail.ReadOnly = true;
+            this.dgvClientes.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvClientes.EnableHeadersVisualStyles = false;
+            this.dgvClientes.Location = new System.Drawing.Point(3, 113);
+            this.dgvClientes.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dgvClientes.Name = "dgvClientes";
+            this.dgvClientes.ReadOnly = true;
+            this.dgvClientes.RowHeadersVisible = false;
+            this.dgvClientes.RowHeadersWidth = 51;
+            this.dgvClientes.RowTemplate.Height = 35;
+            this.dgvClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvClientes.Size = new System.Drawing.Size(1032, 286);
+            this.dgvClientes.TabIndex = 9;
             // 
             // btnNuevoCliente
             // 
@@ -206,7 +158,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 74F));
             this.tableLayoutPanel1.Controls.Add(this.groupBox1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.dataGridViewClientes, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.dgvClientes, 0, 1);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 56);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
@@ -252,7 +204,7 @@
             this.MinimumSize = new System.Drawing.Size(400, 400);
             this.Name = "Cliente";
             this.Text = "Cliente";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClientes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -265,15 +217,10 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.DataGridView dataGridViewClientes;
+        private System.Windows.Forms.DataGridView dgvClientes;
         private System.Windows.Forms.Button btnNuevoCliente;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Alnombres;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Alapellidos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Altelefono;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Alemail;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.GroupBox groupBox1;
