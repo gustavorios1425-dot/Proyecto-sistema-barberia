@@ -55,6 +55,7 @@
             // 
             // panel1
             // 
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel1.Controls.Add(this.txtUsuario);
             this.panel1.Controls.Add(this.lblUsuario);
@@ -281,6 +282,7 @@
             // 
             // picBoxLogo
             // 
+            this.picBoxLogo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.picBoxLogo.Image = global::Proyecto_barberia.Properties.Resources.Logo;
             this.picBoxLogo.Location = new System.Drawing.Point(255, 13);
             this.picBoxLogo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -292,9 +294,10 @@
             // 
             // lblSubTitulo
             // 
+            this.lblSubTitulo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblSubTitulo.AutoSize = true;
             this.lblSubTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSubTitulo.ForeColor = System.Drawing.Color.DimGray;
+            this.lblSubTitulo.ForeColor = System.Drawing.Color.Gainsboro;
             this.lblSubTitulo.Location = new System.Drawing.Point(274, 285);
             this.lblSubTitulo.Name = "lblSubTitulo";
             this.lblSubTitulo.Size = new System.Drawing.Size(345, 29);
@@ -303,6 +306,7 @@
             // 
             // lblTituloLB
             // 
+            this.lblTituloLB.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblTituloLB.BackColor = System.Drawing.Color.Transparent;
             this.lblTituloLB.Font = new System.Drawing.Font("Georgia", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTituloLB.ForeColor = System.Drawing.Color.White;
@@ -328,6 +332,7 @@
             this.Name = "CrearCuenta";
             this.ShowIcon = false;
             this.Text = "Crear Cuenta";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.CrearCuenta_MouseMove);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

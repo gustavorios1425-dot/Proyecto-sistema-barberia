@@ -85,17 +85,25 @@ namespace Proyecto_barberia
             this.Show(); // al cerrar Cliente, muestra Inicio nuevamente
         }
 
-        private void ActualizarContadores()
-        {
-            var repo = new ClienteRepository();
-            var clientes = repo.ObtenerTodos();
-            int totalClientes = clientes.Count;
-            int legendarios = clientes.Count(c => c.EsLegendario);
+        public void ActualizarContadores()
+        {   
+            var repoClientes = new ClienteRepository();
+            var clientes = repoClientes.ObtenerTodos();
+            lblTotalClientes.Text = clientes.Count.ToString();
+            lblTotalLegendarios.Text = clientes.Count(c => c.EsLegendario).ToString();
+
+            var repoCitas = new CitaRepository();
+            var citas = repoCitas.ObtenerTodas();
 
             // Actualiza los controles en tu UI
-            lblTotalClientes.Text = totalClientes.ToString();
+            lblTotalCitas.Text = citas.Count.ToString();
             // Si tienes un control para legendarios, por ejemplo lblLegendarios, actualízalo:
             // lblLegendarios.Text = legendarios.ToString();
+        }
+
+        private void Inicio_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

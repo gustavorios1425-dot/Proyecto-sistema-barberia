@@ -35,7 +35,7 @@ namespace Proyecto_barberia.Repositories
             using (var conn = DatabaseManager.Instance.GetConnection())
             {
                 conn.Open();
-                string sql = "SELECT ID_Cliente, NombreCompleto, Telefono, Email, FechaRegistro, TotalVisitas, EsLegendario FROM CLIENTE ORDER BY NombreCompleto";
+                string sql = "SELECT ID_Cliente, NombreCompleto, Telefono, Email, FechaRegistro, TotalVisitas, EsLegendario FROM CLIENTE";
                 using (var cmd = new SQLiteCommand(sql, conn))
                 using (var reader = cmd.ExecuteReader())
                 {

@@ -114,5 +114,10 @@ namespace Proyecto_barberia
             var inicio = Application.OpenForms.OfType<Inicio>().FirstOrDefault();
             if (inicio != null) inicio.Show();
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

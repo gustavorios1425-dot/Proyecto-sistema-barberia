@@ -33,13 +33,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnCerrarSesion = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblTotalCitas = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lblTotalClientes = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lblTotalLegendarios = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
@@ -59,6 +59,8 @@
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.label1);
@@ -93,6 +95,7 @@
             // 
             // btnCerrarSesion
             // 
+            this.btnCerrarSesion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCerrarSesion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(172)))), ((int)(((byte)(107)))));
             this.btnCerrarSesion.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(172)))), ((int)(((byte)(107)))));
             this.btnCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -112,8 +115,9 @@
             // 
             // panel2
             // 
+            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.lblTotalCitas);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Location = new System.Drawing.Point(70, 141);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -121,15 +125,15 @@
             this.panel2.Size = new System.Drawing.Size(164, 160);
             this.panel2.TabIndex = 1;
             // 
-            // label3
+            // lblTotalCitas
             // 
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(172)))), ((int)(((byte)(107)))));
-            this.label3.Location = new System.Drawing.Point(3, 100);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(86, 49);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "0";
+            this.lblTotalCitas.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalCitas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(172)))), ((int)(((byte)(107)))));
+            this.lblTotalCitas.Location = new System.Drawing.Point(3, 100);
+            this.lblTotalCitas.Name = "lblTotalCitas";
+            this.lblTotalCitas.Size = new System.Drawing.Size(86, 49);
+            this.lblTotalCitas.TabIndex = 2;
+            this.lblTotalCitas.Text = "0";
             // 
             // label2
             // 
@@ -146,6 +150,7 @@
             // 
             // panel3
             // 
+            this.panel3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel3.Controls.Add(this.lblTotalClientes);
             this.panel3.Controls.Add(this.label4);
@@ -180,8 +185,9 @@
             // 
             // panel4
             // 
+            this.panel4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.panel4.Controls.Add(this.label7);
+            this.panel4.Controls.Add(this.lblTotalLegendarios);
             this.panel4.Controls.Add(this.label6);
             this.panel4.Location = new System.Drawing.Point(475, 141);
             this.panel4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -189,15 +195,15 @@
             this.panel4.Size = new System.Drawing.Size(164, 160);
             this.panel4.TabIndex = 3;
             // 
-            // label7
+            // lblTotalLegendarios
             // 
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold);
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(172)))), ((int)(((byte)(107)))));
-            this.label7.Location = new System.Drawing.Point(3, 100);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(112, 49);
-            this.label7.TabIndex = 1;
-            this.label7.Text = "0";
+            this.lblTotalLegendarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold);
+            this.lblTotalLegendarios.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(172)))), ((int)(((byte)(107)))));
+            this.lblTotalLegendarios.Location = new System.Drawing.Point(3, 100);
+            this.lblTotalLegendarios.Name = "lblTotalLegendarios";
+            this.lblTotalLegendarios.Size = new System.Drawing.Size(112, 49);
+            this.lblTotalLegendarios.TabIndex = 1;
+            this.lblTotalLegendarios.Text = "0";
             // 
             // label6
             // 
@@ -214,6 +220,7 @@
             // 
             // panel5
             // 
+            this.panel5.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel5.Controls.Add(this.label9);
             this.panel5.Controls.Add(this.label8);
@@ -248,6 +255,7 @@
             // 
             // panel6
             // 
+            this.panel6.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel6.Controls.Add(this.btnBitacora);
             this.panel6.Controls.Add(this.btnClientes);
@@ -318,6 +326,8 @@
             this.Name = "Inicio";
             this.ShowIcon = false;
             this.Text = "Inicio";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Inicio_Load);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Inicio_MouseMove);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -339,13 +349,13 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblTotalCitas;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblTotalClientes;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblTotalLegendarios;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;

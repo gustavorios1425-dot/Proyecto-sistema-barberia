@@ -45,7 +45,6 @@ namespace Proyecto_barberia
             this.picBoxOculContra = new System.Windows.Forms.PictureBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.lblTituloLB = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.lblSubTitulo = new System.Windows.Forms.Label();
             this.picBoxLogo = new System.Windows.Forms.PictureBox();
             this.panelSuperior.SuspendLayout();
@@ -56,6 +55,8 @@ namespace Proyecto_barberia
             // 
             // panelSuperior
             // 
+            this.panelSuperior.AllowDrop = true;
+            this.panelSuperior.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panelSuperior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panelSuperior.Controls.Add(this.linkCrearCuenta);
             this.panelSuperior.Controls.Add(this.lblNoTienesCuenta);
@@ -228,6 +229,7 @@ namespace Proyecto_barberia
             // 
             // lblTituloLB
             // 
+            this.lblTituloLB.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblTituloLB.BackColor = System.Drawing.Color.Transparent;
             this.lblTituloLB.Font = new System.Drawing.Font("Georgia", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTituloLB.ForeColor = System.Drawing.Color.White;
@@ -236,19 +238,11 @@ namespace Proyecto_barberia
             this.lblTituloLB.Size = new System.Drawing.Size(460, 66);
             this.lblTituloLB.TabIndex = 1;
             this.lblTituloLB.Text = "Legendary Barber";
-            this.lblTituloLB.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(402, 135);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(51, 20);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "label2";
+            this.lblTituloLB.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblSubTitulo
             // 
+            this.lblSubTitulo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblSubTitulo.AutoSize = true;
             this.lblSubTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSubTitulo.ForeColor = System.Drawing.Color.DimGray;
@@ -257,9 +251,11 @@ namespace Proyecto_barberia
             this.lblSubTitulo.Size = new System.Drawing.Size(345, 29);
             this.lblSubTitulo.TabIndex = 3;
             this.lblSubTitulo.Text = "Sistema de gestión profesional";
+            this.lblSubTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // picBoxLogo
             // 
+            this.picBoxLogo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.picBoxLogo.Image = global::Proyecto_barberia.Properties.Resources.Logo;
             this.picBoxLogo.Location = new System.Drawing.Point(251, 13);
             this.picBoxLogo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -275,19 +271,18 @@ namespace Proyecto_barberia
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.ClientSize = new System.Drawing.Size(920, 809);
-            this.Controls.Add(this.picBoxLogo);
             this.Controls.Add(this.lblSubTitulo);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.lblTituloLB);
             this.Controls.Add(this.panelSuperior);
+            this.Controls.Add(this.picBoxLogo);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(942, 865);
             this.Name = "InicioSesion";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Legendary Barber";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panelSuperior.ResumeLayout(false);
             this.panelSuperior.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -303,7 +298,6 @@ namespace Proyecto_barberia
 
         private Panel panelSuperior;
         private Label lblTituloLB;
-        private Label label2;
         private Label lblSubTitulo;
         private PictureBox picBoxLogo;
         private Label label5;
