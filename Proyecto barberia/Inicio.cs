@@ -8,6 +8,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Proyecto_barberia.Repositories;
 
 namespace Proyecto_barberia
 {
@@ -16,6 +17,13 @@ namespace Proyecto_barberia
         public Inicio()
         {
             InitializeComponent();
+            ActualizarContadores();
+            this.Activated += Inicio_Activated; // suscribir evento
+        }
+
+        private void Inicio_Activated(object sender, EventArgs e)
+        {
+            ActualizarContadores();
         }
 
         // Importar funciones de Windows para el movimiento
@@ -77,9 +85,17 @@ namespace Proyecto_barberia
             this.Show(); // al cerrar Cliente, muestra Inicio nuevamente
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void ActualizarContadores()
         {
+            var repo = new ClienteRepository();
+            var clientes = repo.ObtenerTodos();
+            int totalClientes = clientes.Count;
+            int legendarios = clientes.Count(c => c.EsLegendario);
 
+            // Actualiza los controles en tu UI
+            lblTotalClientes.Text = totalClientes.ToString();
+            // Si tienes un control para legendarios, por ejemplo lblLegendarios, actualízalo:
+            // lblLegendarios.Text = legendarios.ToString();
         }
     }
 }
