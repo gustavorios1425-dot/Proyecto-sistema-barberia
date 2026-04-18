@@ -119,5 +119,10 @@ namespace Proyecto_barberia
         {
 
         }
+
+        private void dgvClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

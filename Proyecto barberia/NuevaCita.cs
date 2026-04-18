@@ -17,12 +17,25 @@ namespace Proyecto_barberia
         public NuevaCita()
         {
             InitializeComponent();
-            this.Load += NuevaCita_Load;  // importante
+            //this.Load += NuevaCita_Load;  // importante
         }
+
+        private bool cargado = false; // bandera
 
         private void NuevaCita_Load(object sender, EventArgs e)
         {
-            // Clientes
+            if (cargado) return;
+            cargado = true;
+
+            // Limpieza profunda
+            cmbCliente.DataSource = null;
+            cmbCliente.Items.Clear();
+            cmbBarbero.DataSource = null;
+            cmbBarbero.Items.Clear();
+            cmbServicio.DataSource = null;
+            cmbServicio.Items.Clear();
+
+            // Clientes (no suelen tener duplicados, pero por seguridad)
             var repoCliente = new ClienteRepository();
             var clientes = repoCliente.ObtenerTodos();
             if (clientes.Count > 0)
@@ -31,12 +44,8 @@ namespace Proyecto_barberia
                 cmbCliente.DisplayMember = "NombreCompleto";
                 cmbCliente.ValueMember = "ID_Cliente";
             }
-            else
-            {
-                MessageBox.Show("No hay clientes registrados. Agrega uno primero.");
-            }
 
-            // Barbero (similar)
+            // Barberos
             var repoBarbero = new BarberoRepository();
             var barberos = repoBarbero.ObtenerTodos();
             if (barberos.Count > 0)
@@ -46,7 +55,7 @@ namespace Proyecto_barberia
                 cmbBarbero.ValueMember = "ID_Barbero";
             }
 
-            // Servicio (similar)
+            // Servicios
             var repoServicio = new ServicioRepository();
             var servicios = repoServicio.ObtenerTodos();
             if (servicios.Count > 0)

@@ -17,7 +17,12 @@ namespace Proyecto_barberia.Repositories
             using (var conn = DatabaseManager.Instance.GetConnection())
             {
                 conn.Open();
-                string sql = "SELECT ID_Barbero, Nombre1, Apellido_Paterno FROM BARBERO WHERE Activo = 1";
+                // Agrupa por nombre y apellido, selecciona el ID mínimo
+                string sql = @"
+            SELECT MIN(ID_Barbero) AS ID_Barbero, Nombre1, Apellido_Paterno
+            FROM BARBERO
+            WHERE Activo = 1
+            GROUP BY Nombre1, Apellido_Paterno";
                 using (var cmd = new SQLiteCommand(sql, conn))
                 using (var reader = cmd.ExecuteReader())
                 {

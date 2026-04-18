@@ -112,6 +112,18 @@ namespace Proyecto_barberia.Database
                         Beneficio TEXT NOT NULL DEFAULT 'Corte gratis',
                         Description TEXT
                     );
+
+                    CREATE TABLE IF NOT EXISTS BITACORA (
+                        ID_Bitacora INTEGER PRIMARY KEY AUTOINCREMENT,
+                        ID_Cliente INTEGER NOT NULL,
+                        ID_Servicio INTEGER NOT NULL,
+                        Precio REAL NOT NULL,
+                        Fecha TEXT NOT NULL DEFAULT (datetime('now', 'localtime')),
+                        Notas TEXT,
+                        FOREIGN KEY (ID_Cliente) REFERENCES CLIENTE(ID_Cliente),
+                        FOREIGN KEY (ID_Servicio) REFERENCES SERVICIO(ID_Servicio)
+                    );
+
                     -- Datos de ejemplo
                     INSERT OR IGNORE INTO BARBERO (Nombre1, Apellido_Paterno, Telefono) VALUES ('Carlos', 'Mendoza', '656-200-0001');
                     INSERT OR IGNORE INTO BARBERO (Nombre1, Apellido_Paterno, Telefono) VALUES ('Héctor', 'Ríos', '656-200-0002');

@@ -297,6 +297,7 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nueva Cita";
+            this.Load += new System.EventHandler(this.NuevaCita_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
