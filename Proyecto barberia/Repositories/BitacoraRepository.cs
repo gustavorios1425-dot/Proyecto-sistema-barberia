@@ -6,6 +6,7 @@ using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 namespace Proyecto_barberia.Repositories
 {
     public class BitacoraRepository
@@ -94,7 +95,7 @@ namespace Proyecto_barberia.Repositories
             return todas.FindAll(e =>
                 e.NombreCliente.ToLower().Contains(filtro) ||
                 e.NombreServicio.ToLower().Contains(filtro) ||
-                e.Notas?.ToLower().Contains(filtro) == true
+                (e.Notas != null && e.Notas.ToLower().Contains(filtro))
             );
         }
     }

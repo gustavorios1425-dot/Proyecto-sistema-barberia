@@ -42,7 +42,7 @@
             this.lblTotalLegendarios = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
+            this.lblTotalBitacora = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.btnBitacora = new System.Windows.Forms.Button();
@@ -222,7 +222,7 @@
             // 
             this.panel5.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.panel5.Controls.Add(this.label9);
+            this.panel5.Controls.Add(this.lblTotalBitacora);
             this.panel5.Controls.Add(this.label8);
             this.panel5.Location = new System.Drawing.Point(682, 141);
             this.panel5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -230,15 +230,15 @@
             this.panel5.Size = new System.Drawing.Size(164, 160);
             this.panel5.TabIndex = 4;
             // 
-            // label9
+            // lblTotalBitacora
             // 
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold);
-            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(172)))), ((int)(((byte)(107)))));
-            this.label9.Location = new System.Drawing.Point(3, 100);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(112, 49);
-            this.label9.TabIndex = 1;
-            this.label9.Text = "0";
+            this.lblTotalBitacora.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold);
+            this.lblTotalBitacora.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(172)))), ((int)(((byte)(107)))));
+            this.lblTotalBitacora.Location = new System.Drawing.Point(3, 100);
+            this.lblTotalBitacora.Name = "lblTotalBitacora";
+            this.lblTotalBitacora.Size = new System.Drawing.Size(112, 49);
+            this.lblTotalBitacora.TabIndex = 1;
+            this.lblTotalBitacora.Text = "0";
             // 
             // label8
             // 
@@ -358,7 +358,7 @@
         private System.Windows.Forms.Label lblTotalLegendarios;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lblTotalBitacora;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Button btnBitacora;
         private System.Windows.Forms.Button btnClientes;

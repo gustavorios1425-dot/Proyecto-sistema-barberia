@@ -99,6 +99,10 @@ namespace Proyecto_barberia
             lblTotalCitas.Text = citas.Count.ToString();
             // Si tienes un control para legendarios, por ejemplo lblLegendarios, actualízalo:
             // lblLegendarios.Text = legendarios.ToString();
+
+            var repoBitacora = new BitacoraRepository();
+            var totalEntradas = repoBitacora.ObtenerTodas().Count;
+            lblTotalBitacora.Text = totalEntradas.ToString();
         }
 
         private void Inicio_Load(object sender, EventArgs e)
