@@ -19,5 +19,6 @@ namespace Proyecto_barberia.Entities
         public string Estado { get; set; }
         public string Notas { get; set; }
         public DateTime FechaSolicitud { get; set; }
+        public decimal Precio { get; set; }
     }
 }

@@ -21,7 +21,7 @@ namespace Proyecto_barberia.Repositories
                     SELECT c.ID_Cita, c.ID_Cliente, cl.NombreCompleto AS NombreCliente,
                            c.ID_Barbero, b.Nombre1 || ' ' || b.Apellido_Paterno AS NombreBarbero,
                            c.ID_Servicio, s.Nombre AS NombreServicio,
-                           c.FechaHora, c.Estado, c.Notas, c.FechaSolicitud
+                           c.FechaHora, c.Estado, c.Notas, c.FechaSolicitud, c.Precio
                     FROM CITA c
                     JOIN CLIENTE cl ON c.ID_Cliente = cl.ID_Cliente
                     JOIN BARBERO b ON c.ID_Barbero = b.ID_Barbero
@@ -44,7 +44,8 @@ namespace Proyecto_barberia.Repositories
                             FechaHora = reader.GetDateTime(7),
                             Estado = reader.GetString(8),
                             Notas = reader.IsDBNull(9) ? null : reader.GetString(9),
-                            FechaSolicitud = reader.GetDateTime(10)
+                            FechaSolicitud = reader.GetDateTime(10),
+                            Precio = reader.GetDecimal(11)
                         });
                     }
                 }
@@ -58,8 +59,8 @@ namespace Proyecto_barberia.Repositories
             {
                 conn.Open();
                 string sql = @"
-                    INSERT INTO CITA (ID_Cliente, ID_Barbero, ID_Servicio, FechaHora, Estado, Notas)
-                    VALUES (@idCliente, @idBarbero, @idServicio, @fechaHora, @estado, @notas);
+                    INSERT INTO CITA (ID_Cliente, ID_Barbero, ID_Servicio, FechaHora, Estado, Notas, Precio)
+                    VALUES (@idCliente, @idBarbero, @idServicio, @fechaHora, @estado, @notas, @precio);
                     SELECT last_insert_rowid();";
                 using (var cmd = new SQLiteCommand(sql, conn))
                 {
@@ -69,6 +70,7 @@ namespace Proyecto_barberia.Repositories
                     cmd.Parameters.AddWithValue("@fechaHora", cita.FechaHora.ToString("yyyy-MM-dd HH:mm:ss"));
                     cmd.Parameters.AddWithValue("@estado", cita.Estado ?? "Pendiente");
                     cmd.Parameters.AddWithValue("@notas", cita.Notas ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@precio", cita.Precio);
                     return Convert.ToInt32(cmd.ExecuteScalar());
                 }
             }

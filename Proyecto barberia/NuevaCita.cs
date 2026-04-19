@@ -33,6 +33,8 @@ namespace Proyecto_barberia
             cmbBarbero.DataSource = null;
             cmbBarbero.Items.Clear();
             cmbServicio.DataSource = null;
+            if (cmbServicio.Items.Count > 0)
+                cmbServicio.SelectedIndex = 0;  // esto dispara el evento
             cmbServicio.Items.Clear();
 
             // Clientes (no suelen tener duplicados, pero por seguridad)
@@ -97,6 +99,14 @@ namespace Proyecto_barberia
                 Estado = cmbEstado.SelectedItem.ToString(),
                 Notas = txtNotas.Text
             };
+
+            decimal precio = 0;
+            if (!decimal.TryParse(txtPrecio.Text, out precio))
+            {
+                MessageBox.Show("El precio no es válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            cita.Precio = precio;
 
             var repo = new CitaRepository();
             int id = repo.Insertar(cita);
