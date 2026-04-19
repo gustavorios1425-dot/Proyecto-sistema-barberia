@@ -76,6 +76,29 @@ namespace Proyecto_barberia.Repositories
             }
         }
 
-        // Actualizar estado, etc. (lo añadiremos después)
+        public bool ActualizarCita(CitaEntidad cita)
+        {
+            using (var conn = DatabaseManager.Instance.GetConnection())
+            {
+                conn.Open();
+                string sql = @"
+                    UPDATE CITA 
+                    SET ID_Cliente = @idCliente, ID_Barbero = @idBarbero, ID_Servicio = @idServicio,
+                        FechaHora = @fechaHora, Estado = @estado, Notas = @notas, Precio = @precio
+                    WHERE ID_Cita = @id";
+                using (var cmd = new SQLiteCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@idCliente", cita.ID_Cliente);
+                    cmd.Parameters.AddWithValue("@idBarbero", cita.ID_Barbero);
+                    cmd.Parameters.AddWithValue("@idServicio", cita.ID_Servicio);
+                    cmd.Parameters.AddWithValue("@fechaHora", cita.FechaHora.ToString("yyyy-MM-dd HH:mm:ss"));
+                    cmd.Parameters.AddWithValue("@estado", cita.Estado);
+                    cmd.Parameters.AddWithValue("@notas", cita.Notas ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@precio", cita.Precio);
+                    cmd.Parameters.AddWithValue("@id", cita.ID_Cita);
+                    return cmd.ExecuteNonQuery() > 0;
+                }
+            }
+        }
     }
 }

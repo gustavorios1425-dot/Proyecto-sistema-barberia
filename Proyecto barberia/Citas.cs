@@ -33,6 +33,7 @@ namespace Proyecto_barberia
         public Citas()
         {
             InitializeComponent();
+            dgvCitas.CellClick += dgvCitas_CellClick;
             this.Load += Citas_Load;
             txtBuscarCita.TextChanged += txtBuscarCita_TextChanged;
         }
@@ -76,6 +77,17 @@ namespace Proyecto_barberia
                 dgvCitas.Columns["Estado"].HeaderText = "Estado";
             if (dgvCitas.Columns.Contains("Notas"))
                 dgvCitas.Columns["Notas"].HeaderText = "Notas";
+
+            // Agregar columna de botón Editar (solo si no existe)
+            if (!dgvCitas.Columns.Contains("btnEditar"))
+            {
+                DataGridViewButtonColumn btnEditar = new DataGridViewButtonColumn();
+                btnEditar.Name = "btnEditar";
+                btnEditar.HeaderText = "Acción";
+                btnEditar.Text = "Editar";
+                btnEditar.UseColumnTextForButtonValue = true;
+                dgvCitas.Columns.Add(btnEditar);
+            }
 
             dgvCitas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
@@ -132,6 +144,23 @@ namespace Proyecto_barberia
             {
                 // Asumiendo que en Inicio tienes un método público para actualizar contadores
                 inicio.ActualizarContadores();
+            }
+        }
+
+        private void dgvCitas_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Verificar que se hizo clic en una fila válida y en la columna del botón
+            if (e.RowIndex >= 0 && dgvCitas.Columns[e.ColumnIndex].Name == "btnEditar")
+            {
+                CitaEntidad cita = _listaCompleta[e.RowIndex];
+                using (EditarCita frm = new EditarCita(cita))
+                {
+                    if (frm.ShowDialog() == DialogResult.OK)
+                    {
+                        CargarCitas(); // refrescar la lista
+                        ActualizarContadorCitasEnInicio(); // actualizar contador en inicio
+                    }
+                }
             }
         }
 

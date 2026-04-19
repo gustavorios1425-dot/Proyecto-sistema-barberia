@@ -56,5 +56,68 @@ namespace Proyecto_barberia.Repositories
             }
             return clientes;
         }
+
+        // Incrementar visitas en 1 y recalcular legendario
+        public void IncrementarVisitas(int idCliente)
+        {
+            using (var conn = DatabaseManager.Instance.GetConnection())
+            {
+                conn.Open();
+                int umbral = ObtenerUmbral(conn);
+                string sql = "UPDATE CLIENTE SET TotalVisitas = TotalVisitas + 1 WHERE ID_Cliente = @id";
+                using (var cmd = new SQLiteCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@id", idCliente);
+                    cmd.ExecuteNonQuery();
+                }
+                RecalcularLegendario(conn, idCliente, umbral);
+            }
+        }
+
+        // Decrementar visitas en 1 y recalcular legendario
+        public void DecrementarVisitas(int idCliente)
+        {
+            using (var conn = DatabaseManager.Instance.GetConnection())
+            {
+                conn.Open();
+                int umbral = ObtenerUmbral(conn);
+                string sql = "UPDATE CLIENTE SET TotalVisitas = TotalVisitas - 1 WHERE ID_Cliente = @id AND TotalVisitas > 0";
+                using (var cmd = new SQLiteCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@id", idCliente);
+                    cmd.ExecuteNonQuery();
+                }
+                RecalcularLegendario(conn, idCliente, umbral);
+            }
+        }
+
+        // Recalcular si el cliente es legendario basado en el umbral y las visitas actuales
+        private void RecalcularLegendario(SQLiteConnection conn, int idCliente, int umbral)
+        {
+            string sql = @"
+                UPDATE CLIENTE 
+                SET EsLegendario = CASE 
+                    WHEN TotalVisitas > 0 AND TotalVisitas % @umbral = 0 THEN 1 
+                    ELSE 0 
+                END
+                WHERE ID_Cliente = @id";
+            using (var cmd = new SQLiteCommand(sql, conn))
+            {
+                cmd.Parameters.AddWithValue("@umbral", umbral);
+                cmd.Parameters.AddWithValue("@id", idCliente);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        // Obtener umbral desde CONFIGURACION (por defecto 5)
+        private int ObtenerUmbral(SQLiteConnection conn)
+        {
+            string sql = "SELECT UmbralLegendario FROM CONFIGURACION LIMIT 1";
+            using (var cmd = new SQLiteCommand(sql, conn))
+            {
+                object result = cmd.ExecuteScalar();
+                return result != null ? Convert.ToInt32(result) : 5;
+            }
+        }
     }
 }
