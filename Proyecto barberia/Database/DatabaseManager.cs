@@ -94,18 +94,6 @@ namespace Proyecto_barberia.Database
                         FOREIGN KEY (ID_Barbero) REFERENCES BARBERO(ID_Barbero),
                         FOREIGN KEY (ID_Servicio) REFERENCES SERVICIO(ID_Servicio)
                     );
-                    CREATE TABLE IF NOT EXISTS HISTORIAL_CORTE (
-                        ID_Hist INTEGER PRIMARY KEY AUTOINCREMENT,
-                        ID_Cita INTEGER NOT NULL UNIQUE,
-                        ID_Cliente INTEGER NOT NULL,
-                        ID_Usuario INTEGER NOT NULL,
-                        FechaCorte TEXT NOT NULL DEFAULT (datetime('now', 'localtime')),
-                        Precio REAL NOT NULL,
-                        Observaciones TEXT,
-                        FOREIGN KEY (ID_Cita) REFERENCES CITA(ID_Cita),
-                        FOREIGN KEY (ID_Cliente) REFERENCES CLIENTE(ID_Cliente),
-                        FOREIGN KEY (ID_Usuario) REFERENCES USUARIO(ID_Usuario)
-                    );
                     CREATE TABLE IF NOT EXISTS CONFIGURACION (
                         ID_Config INTEGER PRIMARY KEY AUTOINCREMENT,
                         UmbralLegendario INTEGER NOT NULL DEFAULT 5,
@@ -125,15 +113,46 @@ namespace Proyecto_barberia.Database
                     );
 
                     -- Datos de ejemplo
-                    INSERT OR IGNORE INTO BARBERO (Nombre1, Apellido_Paterno, Telefono) VALUES ('Carlos', 'Mendoza', '656-200-0001');
-                    INSERT OR IGNORE INTO BARBERO (Nombre1, Apellido_Paterno, Telefono) VALUES ('Héctor', 'Ríos', '656-200-0002');
-                    INSERT OR IGNORE INTO SERVICIO (Nombre, DuracionMin, Precio) VALUES ('Corte clásico', 30, 120);
-                    INSERT OR IGNORE INTO SERVICIO (Nombre, DuracionMin, Precio) VALUES ('Corte + barba', 45, 180);
-                    INSERT OR IGNORE INTO SERVICIO (Nombre, DuracionMin, Precio) VALUES ('Afeitado tradicional', 20, 90);
-                    INSERT OR IGNORE INTO USUARIO (ID_Barbero, NombreUsuario, Password, Rol) VALUES (1, 'admin', 'admin123', 'administrador');
-                    INSERT OR IGNORE INTO CLIENTE (NombreCompleto, Telefono, Email) VALUES ('Juan Pérez', '656-111-2233', 'juan@mail.com');
-                    INSERT OR IGNORE INTO CLIENTE (NombreCompleto, Telefono, Email) VALUES ('María López', '656-444-5566', 'maria@mail.com');
-                    INSERT OR IGNORE INTO CONFIGURACION (UmbralLegendario, Beneficio) VALUES (5, '10% de descuento en tu próximo corte');
+                    -- Insertar barberos solo si no hay ninguno
+                    INSERT OR IGNORE INTO BARBERO (Nombre1, Apellido_Paterno, Telefono)
+                    SELECT 'Carlos', 'Mendoza', '656-200-0001'
+                    WHERE NOT EXISTS (SELECT 1 FROM BARBERO LIMIT 1);
+
+                    INSERT OR IGNORE INTO BARBERO (Nombre1, Apellido_Paterno, Telefono)
+                    SELECT 'Héctor', 'Ríos', '656-200-0002'
+                    WHERE NOT EXISTS (SELECT 1 FROM BARBERO LIMIT 1);
+
+                    -- Insertar servicios solo si no hay ninguno
+                    INSERT OR IGNORE INTO SERVICIO (Nombre, DuracionMin, Precio)
+                    SELECT 'Corte clásico', 30, 120
+                    WHERE NOT EXISTS (SELECT 1 FROM SERVICIO LIMIT 1);
+
+                    INSERT OR IGNORE INTO SERVICIO (Nombre, DuracionMin, Precio)
+                    SELECT 'Corte + barba', 45, 180
+                    WHERE NOT EXISTS (SELECT 1 FROM SERVICIO LIMIT 1);
+
+                    INSERT OR IGNORE INTO SERVICIO (Nombre, DuracionMin, Precio)
+                    SELECT 'Afeitado tradicional', 20, 90
+                    WHERE NOT EXISTS (SELECT 1 FROM SERVICIO LIMIT 1);
+
+                    -- Insertar usuario admin solo si no existe
+                    INSERT OR IGNORE INTO USUARIO (ID_Barbero, NombreUsuario, Password, Rol)
+                    SELECT 1, 'admin', 'admin123', 'administrador'
+                    WHERE NOT EXISTS (SELECT 1 FROM USUARIO LIMIT 1);
+
+                    -- Insertar clientes solo si no hay ninguno (evita duplicar los mismos)
+                    INSERT OR IGNORE INTO CLIENTE (NombreCompleto, Telefono, Email)
+                    SELECT 'Juan Pérez', '656-111-2233', 'juan@mail.com'
+                    WHERE NOT EXISTS (SELECT 1 FROM CLIENTE LIMIT 1);
+
+                    INSERT OR IGNORE INTO CLIENTE (NombreCompleto, Telefono, Email)
+                    SELECT 'María López', '656-444-5566', 'maria@mail.com'
+                    WHERE NOT EXISTS (SELECT 1 FROM CLIENTE LIMIT 1);
+
+                    -- Insertar configuración solo si no existe
+                    INSERT OR IGNORE INTO CONFIGURACION (UmbralLegendario, Beneficio)
+                    SELECT 5, 'Proximo servicio sin costo.'
+                    WHERE NOT EXISTS (SELECT 1 FROM CONFIGURACION LIMIT 1);
                 ";
                 using (var cmd = new SQLiteCommand(sql, conn))
                 {
