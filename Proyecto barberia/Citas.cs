@@ -78,7 +78,7 @@ namespace Proyecto_barberia
             if (dgvCitas.Columns.Contains("Notas"))
                 dgvCitas.Columns["Notas"].HeaderText = "Notas";
 
-            // Agregar columna de botón Editar (solo si no existe)
+            // Agregar columna de botón Editar
             if (!dgvCitas.Columns.Contains("btnEditar"))
             {
                 DataGridViewButtonColumn btnEditar = new DataGridViewButtonColumn();
@@ -87,6 +87,17 @@ namespace Proyecto_barberia
                 btnEditar.Text = "Editar";
                 btnEditar.UseColumnTextForButtonValue = true;
                 dgvCitas.Columns.Add(btnEditar);
+            }
+
+            // Agregar columna de botón Eliminar
+            if (!dgvCitas.Columns.Contains("btnEliminar"))
+            {
+                DataGridViewButtonColumn btnEliminar = new DataGridViewButtonColumn();
+                btnEliminar.Name = "btnEliminar";
+                btnEliminar.HeaderText = "Acción";
+                btnEliminar.Text = "Eliminar";
+                btnEliminar.UseColumnTextForButtonValue = true;
+                dgvCitas.Columns.Add(btnEliminar);
             }
 
             dgvCitas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -149,6 +160,12 @@ namespace Proyecto_barberia
 
         private void dgvCitas_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            // Ignorar clics en encabezados (RowIndex = -1)
+            if (e.RowIndex < 0) return;
+
+            // Asegura _listaCompleta no sea null y tenga elementos en el índice e.RowIndex
+            if (e.RowIndex >= _listaCompleta.Count) return;
+
             // Verificar que se hizo clic en una fila válida y en la columna del botón
             if (e.RowIndex >= 0 && dgvCitas.Columns[e.ColumnIndex].Name == "btnEditar")
             {
@@ -159,6 +176,40 @@ namespace Proyecto_barberia
                     {
                         CargarCitas(); // refrescar la lista
                         ActualizarContadorCitasEnInicio(); // actualizar contador en inicio
+                    }
+                }
+            }
+            else if (dgvCitas.Columns[e.ColumnIndex].Name == "btnEliminar")
+            {
+                CitaEntidad cita = _listaCompleta[e.RowIndex];
+
+                // No permitir eliminar citas completadas (ya que se eliminan al completarse)
+                if (cita.Estado == "Completada")
+                {
+                    MessageBox.Show("Las citas completadas se eliminan automáticamente al ser marcadas como completadas.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                // Preguntar confirmación
+                DialogResult result = MessageBox.Show(
+                    $"¿Eliminar cita de {cita.NombreCliente} el {cita.FechaHora:dd/MM/yyyy HH:mm}?\n\nEsta acción no afecta las visitas del cliente.",
+                    "Confirmar eliminación",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning
+                );
+
+                if (result == DialogResult.Yes)
+                {
+                    var repo = new CitaRepository();
+                    if (repo.Eliminar(cita.ID_Cita))
+                    {
+                        MessageBox.Show("Cita eliminada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        CargarCitas(); // refrescar lista
+                        ActualizarContadorCitasEnInicio();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al eliminar la cita.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }

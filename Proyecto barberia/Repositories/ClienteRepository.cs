@@ -163,5 +163,44 @@ namespace Proyecto_barberia.Repositories
                 }
             }
         }
+
+        public bool EliminarCliente(int idCliente, out string mensaje)
+        {
+            using (var conn = DatabaseManager.Instance.GetConnection())
+            {
+                conn.Open();
+                // Verificar si tiene bitácoras
+                string sqlBit = "SELECT COUNT(*) FROM BITACORA WHERE ID_Cliente = @id";
+                using (var cmd = new SQLiteCommand(sqlBit, conn))
+                {
+                    cmd.Parameters.AddWithValue("@id", idCliente);
+                    if (Convert.ToInt32(cmd.ExecuteScalar()) > 0)
+                    {
+                        mensaje = "El cliente tiene registros en bitácora. No se puede eliminar.";
+                        return false;
+                    }
+                }
+                // Eliminar citas asociadas
+                string sqlDelCitas = "DELETE FROM CITA WHERE ID_Cliente = @id";
+                using (var cmd = new SQLiteCommand(sqlDelCitas, conn))
+                {
+                    cmd.Parameters.AddWithValue("@id", idCliente);
+                    cmd.ExecuteNonQuery();
+                }
+                // Eliminar cliente
+                string sqlDelCliente = "DELETE FROM CLIENTE WHERE ID_Cliente = @id";
+                using (var cmd = new SQLiteCommand(sqlDelCliente, conn))
+                {
+                    cmd.Parameters.AddWithValue("@id", idCliente);
+                    if (cmd.ExecuteNonQuery() > 0)
+                    {
+                        mensaje = "";
+                        return true;
+                    }
+                }
+                mensaje = "No se pudo eliminar el cliente.";
+                return false;
+            }
+        }
     }
 }

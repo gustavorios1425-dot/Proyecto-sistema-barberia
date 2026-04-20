@@ -77,6 +77,15 @@ namespace Proyecto_barberia
                 dgvClientes.Columns["TotalVisitas"].HeaderText = "Visitas";
             if (dgvClientes.Columns.Contains("EsLegendario"))
                 dgvClientes.Columns["EsLegendario"].HeaderText = "Legendario";
+            if (!dgvClientes.Columns.Contains("btnEliminar"))
+            {
+                DataGridViewButtonColumn btnEliminar = new DataGridViewButtonColumn();
+                btnEliminar.Name = "btnEliminar";
+                btnEliminar.HeaderText = "";
+                btnEliminar.Text = "Eliminar";
+                btnEliminar.UseColumnTextForButtonValue = true;
+                dgvClientes.Columns.Add(btnEliminar);
+            }
 
             dgvClientes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
@@ -115,13 +124,36 @@ namespace Proyecto_barberia
             if (inicio != null) inicio.Show();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void dgvClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex >= 0 && dgvClientes.Columns[e.ColumnIndex].Name == "btnEliminar")
+            {
+                ClienteEntidad cliente = _listaCompleta[e.RowIndex];
+
+                // Preguntar confirmación
+                DialogResult confirm = MessageBox.Show(
+                    $"¿Eliminar cliente '{cliente.NombreCompleto}'?\n\nSe eliminarán también todas sus citas pendientes.\nNo se eliminarán registros de bitácora.",
+                    "Confirmar eliminación",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning
+                );
+
+                if (confirm == DialogResult.Yes)
+                {
+                    var repo = new ClienteRepository();
+                    string mensaje;
+                    if (repo.EliminarCliente(cliente.ID_Cliente, out mensaje))
+                    {
+                        MessageBox.Show($"Cliente {cliente.NombreCompleto} eliminado.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        CargarClientes();
+                        // Opcional: actualizar contadores en Inicio
+                    }
+                    else
+                    {
+                        MessageBox.Show(mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
 
         }
     }

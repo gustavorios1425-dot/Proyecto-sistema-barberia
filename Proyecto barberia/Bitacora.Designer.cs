@@ -83,16 +83,16 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvBitacora.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvBitacora.EnableHeadersVisualStyles = false;
-            this.dgvBitacora.Location = new System.Drawing.Point(18, 218);
+            this.dgvBitacora.Location = new System.Drawing.Point(18, 199);
             this.dgvBitacora.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgvBitacora.Name = "dgvBitacora";
-            this.dgvBitacora.ReadOnly = true;
             this.dgvBitacora.RowHeadersVisible = false;
             this.dgvBitacora.RowHeadersWidth = 51;
             this.dgvBitacora.RowTemplate.Height = 35;
             this.dgvBitacora.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvBitacora.Size = new System.Drawing.Size(968, 114);
+            this.dgvBitacora.Size = new System.Drawing.Size(968, 178);
             this.dgvBitacora.TabIndex = 15;
+            this.dgvBitacora.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBitacora_CellContentClick);
             // 
             // btnNuevaEntrada
             // 
@@ -157,7 +157,7 @@
             this.txtTotalGanancias.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtTotalGanancias.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTotalGanancias.ForeColor = System.Drawing.Color.Black;
-            this.txtTotalGanancias.Location = new System.Drawing.Point(18, 351);
+            this.txtTotalGanancias.Location = new System.Drawing.Point(19, 385);
             this.txtTotalGanancias.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtTotalGanancias.Multiline = true;
             this.txtTotalGanancias.Name = "txtTotalGanancias";

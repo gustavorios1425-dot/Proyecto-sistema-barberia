@@ -100,5 +100,19 @@ namespace Proyecto_barberia.Repositories
                 }
             }
         }
+
+        public bool Eliminar(int idCita)
+        {
+            using (var conn = DatabaseManager.Instance.GetConnection())
+            {
+                conn.Open();
+                string sql = "DELETE FROM CITA WHERE ID_Cita = @id";
+                using (var cmd = new SQLiteCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@id", idCita);
+                    return cmd.ExecuteNonQuery() > 0;
+                }
+            }
+        }
     }
 }

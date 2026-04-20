@@ -98,5 +98,45 @@ namespace Proyecto_barberia.Repositories
                 (e.Notas != null && e.Notas.ToLower().Contains(filtro))
             );
         }
+
+        // Metodo para Eliminar Entrada
+        public bool Eliminar(int idBitacora)
+        {
+            using (var conn = DatabaseManager.Instance.GetConnection())
+            {
+                conn.Open();
+                string sql = "DELETE FROM BITACORA WHERE ID_Bitacora = @id";
+                using (var cmd = new SQLiteCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@id", idBitacora);
+                    return cmd.ExecuteNonQuery() > 0;
+                }
+            }
+        }
+
+        // Metodo para Actualizar Notas con verificación
+        public bool ActualizarNotas(int idBitacora, string nuevasNotas)
+        {
+            try
+            {
+                using (var conn = DatabaseManager.Instance.GetConnection())
+                {
+                    conn.Open();
+                    string sql = "UPDATE BITACORA SET Notas = @notas WHERE ID_Bitacora = @id";
+                    using (var cmd = new SQLiteCommand(sql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@notas", nuevasNotas ?? (object)DBNull.Value);
+                        cmd.Parameters.AddWithValue("@id", idBitacora);
+                        int rowsAffected = cmd.ExecuteNonQuery();
+                        return rowsAffected > 0;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"Error en ActualizarNotas: {ex.Message}");
+                return false;
+            }
+        }
     }
 }

@@ -115,35 +115,53 @@ namespace Proyecto_barberia
             _citaEditada.Notas = txtNotas.Text;
             _citaEditada.Precio = decimal.Parse(txtPrecio.Text);
 
-            // --- Lógica de ajuste de visitas y legendario ---
-            bool estadoCambio = _citaOriginal.Estado != _citaEditada.Estado;
-            bool clienteCambio = _citaOriginal.ID_Cliente != _citaEditada.ID_Cliente;
-
-            // Caso 1: La cita estaba completada y ahora ya no → restar visita al cliente original
-            if (_citaOriginal.Estado == "Completada" && _citaEditada.Estado != "Completada")
-            {
-                _repoCliente.DecrementarVisitas(_citaOriginal.ID_Cliente);
-            }
-            // Caso 2: La cita no estaba completada y ahora se completa → sumar visita al cliente actual (puede ser el mismo u otro)
+            // Si se está completando la cita (de un estado no completado a completado)
             if (_citaOriginal.Estado != "Completada" && _citaEditada.Estado == "Completada")
             {
-                _repoCliente.IncrementarVisitas(_citaEditada.ID_Cliente);
-            }
-            // Caso 3: Si cambia el cliente y la cita estaba completada → restar al antiguo y sumar al nuevo
-            if (clienteCambio && _citaOriginal.Estado == "Completada")
-            {
-                // Ya se restó en el caso 1 si aplicaba, pero si el estado no cambió y solo cambió el cliente, debemos hacer el ajuste
-                if (_citaOriginal.Estado == "Completada" && _citaEditada.Estado == "Completada")
+                var confirm = MessageBox.Show($"¿Completar cita de {_citaOriginal.NombreCliente}? Se creará un registro en bitácora y la cita se eliminará.", "Confirmar completado", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (confirm != DialogResult.Yes)
+                    return;
+
+                // Crear entrada en bitácora
+                var bitacora = new BitacoraEntidad
                 {
-                    _repoCliente.DecrementarVisitas(_citaOriginal.ID_Cliente);
-                    _repoCliente.IncrementarVisitas(_citaEditada.ID_Cliente);
+                    ID_Cliente = _citaEditada.ID_Cliente,
+                    ID_Servicio = _citaEditada.ID_Servicio,
+                    Precio = _citaEditada.Precio,
+                    Fecha = DateTime.Now,
+                    Notas = $"Cita completada el {_citaEditada.FechaHora:dd/MM/yyyy HH:mm}. Notas originales: {_citaEditada.Notas}"
+                };
+                var repoBit = new BitacoraRepository();
+                repoBit.Insertar(bitacora);
+
+                // Incrementar visitas del cliente
+                var repoCliente = new ClienteRepository();
+                repoCliente.IncrementarVisitas(_citaEditada.ID_Cliente);
+
+                // Eliminar la cita
+                bool ok = _repoCita.Eliminar(_citaOriginal.ID_Cita);
+                if (ok)
+                {
+                    MessageBox.Show("Cita completada y registrada en bitácora.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
                 }
+                else
+                {
+                    MessageBox.Show("Error al eliminar la cita.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                return;
             }
 
-            // Actualizar la cita en la BD
-            bool ok = _repoCita.ActualizarCita(_citaEditada);
-            if (ok)
+            // Para otros cambios de estado (no completado) o edición normal
+            // (aquí mantienes la lógica anterior de actualización de visitas si cambia cliente o se descompleta, etc.)
+            // Pero como ya no hay citas completadas, solo manejamos otros casos.
+            // Simplificamos: si no es completado, simplemente actualizar la cita.
+            bool okUpdate = _repoCita.ActualizarCita(_citaEditada);
+            if (okUpdate)
             {
+                // Si cambió el cliente y la cita estaba completada? Ya no se da. Solo manejar otros cambios.
+                // Si cambia el cliente en una cita no completada, no afecta visitas.
                 MessageBox.Show("Cita actualizada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.DialogResult = DialogResult.OK;
                 this.Close();
