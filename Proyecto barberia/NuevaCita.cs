@@ -90,28 +90,47 @@ namespace Proyecto_barberia
                 return;
             }
 
-            var cita = new CitaEntidad
-            {
-                ID_Cliente = (int)cmbCliente.SelectedValue,
-                ID_Barbero = (int)cmbBarbero.SelectedValue,
-                ID_Servicio = (int)cmbServicio.SelectedValue,
-                FechaHora = dtpFechaHora.Value,
-                Estado = cmbEstado.SelectedItem.ToString(),
-                Notas = txtNotas.Text
-            };
+            int idCliente = (int)cmbCliente.SelectedValue;
+            bool esLegendario = false;
 
+            // Verificar si el cliente es legendario
+            var repoCliente = new ClienteRepository();
+            var cliente = repoCliente.ObtenerPorId(idCliente);
+            if (cliente != null && cliente.EsLegendario)
+            {
+                esLegendario = true;
+                txtPrecio.Text = "0";
+                MessageBox.Show("Este cliente es legendario. La cita tendrá costo $0.", "Cita gratuita", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            // Obtener precio del txtPrecio (puede ser el automático o 0)
             decimal precio = 0;
             if (!decimal.TryParse(txtPrecio.Text, out precio))
             {
                 MessageBox.Show("El precio no es válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            cita.Precio = precio;
+            if (precio < 0) precio = 0;
+
+            var cita = new CitaEntidad
+            {
+                ID_Cliente = idCliente,
+                ID_Barbero = (int)cmbBarbero.SelectedValue,
+                ID_Servicio = (int)cmbServicio.SelectedValue,
+                FechaHora = dtpFechaHora.Value,
+                Estado = cmbEstado.SelectedItem.ToString(),
+                Notas = txtNotas.Text,
+                Precio = precio
+            };
 
             var repo = new CitaRepository();
             int id = repo.Insertar(cita);
             if (id > 0)
             {
+                if (esLegendario)
+                {
+                    repoCliente.DesactivarLegendario(idCliente);
+                }
                 MessageBox.Show("Cita guardada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.DialogResult = DialogResult.OK;
                 this.Close();

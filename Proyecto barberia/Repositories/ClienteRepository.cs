@@ -119,5 +119,49 @@ namespace Proyecto_barberia.Repositories
                 return result != null ? Convert.ToInt32(result) : 5;
             }
         }
+
+        public ClienteEntidad ObtenerPorId(int id)
+        {
+            using (var conn = DatabaseManager.Instance.GetConnection())
+            {
+                conn.Open();
+                string sql = "SELECT ID_Cliente, NombreCompleto, Telefono, Email, FechaRegistro, TotalVisitas, EsLegendario FROM CLIENTE WHERE ID_Cliente = @id";
+                using (var cmd = new SQLiteCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@id", id);
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            return new ClienteEntidad
+                            {
+                                ID_Cliente = reader.GetInt32(0),
+                                NombreCompleto = reader.GetString(1),
+                                Telefono = reader.GetString(2),
+                                Email = reader.IsDBNull(3) ? null : reader.GetString(3),
+                                FechaRegistro = reader.GetString(4),
+                                TotalVisitas = reader.GetInt32(5),
+                                EsLegendario = reader.GetInt32(6) == 1
+                            };
+                        }
+                    }
+                }
+            }
+            return null;
+        }
+
+        public void DesactivarLegendario(int idCliente)
+        {
+            using (var conn = DatabaseManager.Instance.GetConnection())
+            {
+                conn.Open();
+                string sql = "UPDATE CLIENTE SET EsLegendario = 0 WHERE ID_Cliente = @id";
+                using (var cmd = new SQLiteCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@id", idCliente);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
     }
 }
