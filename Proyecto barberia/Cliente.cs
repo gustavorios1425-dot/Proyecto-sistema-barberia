@@ -61,10 +61,16 @@ namespace Proyecto_barberia
             _listaCompleta = repo.ObtenerTodos();
             dgvClientes.DataSource = null;
             dgvClientes.DataSource = _listaCompleta;
+            ConfigurarColumnas(); // en lugar del código inline
+        }
 
-            // Configurar columnas (igual que tenías)
+        private void ConfigurarColumnas()
+        {
+            // Ocultar columnas de ID
             if (dgvClientes.Columns.Contains("ID_Cliente"))
                 dgvClientes.Columns["ID_Cliente"].Visible = false;
+
+            // Cambiar títulos
             if (dgvClientes.Columns.Contains("NombreCompleto"))
                 dgvClientes.Columns["NombreCompleto"].HeaderText = "Nombre completo";
             if (dgvClientes.Columns.Contains("Telefono"))
@@ -77,15 +83,21 @@ namespace Proyecto_barberia
                 dgvClientes.Columns["TotalVisitas"].HeaderText = "Visitas";
             if (dgvClientes.Columns.Contains("EsLegendario"))
                 dgvClientes.Columns["EsLegendario"].HeaderText = "Legendario";
+
+            // Botón Eliminar (solo si no existe)
             if (!dgvClientes.Columns.Contains("btnEliminar"))
             {
                 DataGridViewButtonColumn btnEliminar = new DataGridViewButtonColumn();
                 btnEliminar.Name = "btnEliminar";
-                btnEliminar.HeaderText = "";
+                btnEliminar.HeaderText = "Acción";
                 btnEliminar.Text = "Eliminar";
                 btnEliminar.UseColumnTextForButtonValue = true;
                 dgvClientes.Columns.Add(btnEliminar);
             }
+
+            // Forzar que el botón Eliminar esté a la derecha (última columna)
+            if (dgvClientes.Columns.Contains("btnEliminar"))
+                dgvClientes.Columns["btnEliminar"].DisplayIndex = dgvClientes.Columns.Count - 1;
 
             dgvClientes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
@@ -108,6 +120,8 @@ namespace Proyecto_barberia
                 dgvClientes.DataSource = null;
                 dgvClientes.DataSource = filtrados;
             }
+            // Replicar la configuracion de columnas después de cambiar el DataSource
+            ConfigurarColumnas();
         }
 
         private void txtBuscar_TextChanged(object sender, EventArgs e)

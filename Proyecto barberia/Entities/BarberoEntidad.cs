@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Proyecto_barberia.Entities
 {
     public class BarberoEntidad

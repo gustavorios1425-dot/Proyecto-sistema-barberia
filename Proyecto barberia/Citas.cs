@@ -100,6 +100,12 @@ namespace Proyecto_barberia
                 dgvCitas.Columns.Add(btnEliminar);
             }
 
+            // Forzar que los botones estén a la derecha
+            if (dgvCitas.Columns.Contains("btnEditar"))
+                dgvCitas.Columns["btnEditar"].DisplayIndex = dgvCitas.Columns.Count - 1; // penúltimo
+            if (dgvCitas.Columns.Contains("btnEliminar"))
+                dgvCitas.Columns["btnEliminar"].DisplayIndex = dgvCitas.Columns.Count - 1; // último
+
             dgvCitas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
@@ -122,6 +128,7 @@ namespace Proyecto_barberia
                 dgvCitas.DataSource = null;
                 dgvCitas.DataSource = filtrados;
             }
+            ConfigurarColumnas(); // Reconfigurar columnas para asegurarse de que los botones sigan funcionando
         }
 
         private void txtBuscarCita_TextChanged(object sender, EventArgs e)

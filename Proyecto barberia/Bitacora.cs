@@ -79,6 +79,9 @@ namespace Proyecto_barberia
                 dgvBitacora.Columns.Add(btnEliminar);
             }
 
+            if (dgvBitacora.Columns.Contains("btnEliminar"))
+                dgvBitacora.Columns["btnEliminar"].DisplayIndex = dgvBitacora.Columns.Count - 1;
+
             dgvBitacora.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
@@ -102,6 +105,7 @@ namespace Proyecto_barberia
                 dgvBitacora.DataSource = null;
                 dgvBitacora.DataSource = filtrados;
             }
+            ConfigurarColumnas(); // Reconfigurar columnas para asegurarse de que los botones sigan funcionando
         }
 
         private void btnNuevaEntrada_Click(object sender, EventArgs e)
