@@ -15,9 +15,35 @@ namespace Proyecto_barberia
 {
     public partial class NuevoCliente : Form
     {
+        private bool dragging = false;
+        private Point startPoint = new Point(0, 0);
+
+        private void pnlTitulo_MouseDown(object sender, MouseEventArgs e)
+        {
+            dragging = true;
+            startPoint = new Point(e.X, e.Y);
+        }
+
+        private void pnlTitulo_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (dragging)
+            {
+                Point p = PointToScreen(e.Location);
+                this.Location = new Point(p.X - startPoint.X, p.Y - startPoint.Y);
+            }
+        }
+
+        private void pnlTitulo_MouseUp(object sender, MouseEventArgs e)
+        {
+            dragging = false;
+        }
+
         public NuevoCliente()
         {
             InitializeComponent();
+            this.Size = new Size(345, 375);
+            this.MinimumSize = this.Size;
+            this.MaximumSize = this.Size;
         }
 
         private void btnCrearCliente_Click(object sender, EventArgs e)
@@ -56,9 +82,19 @@ namespace Proyecto_barberia
             }
         }
 
-        private void btnCerrarNueCli_Click(object sender, EventArgs e)
+        private void btnCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void NuevoCliente_Load(object sender, EventArgs e)
+        {
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
     }
 }

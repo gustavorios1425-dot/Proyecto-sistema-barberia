@@ -19,9 +19,37 @@ namespace Proyecto_barberia
         private ClienteRepository _repoCliente;
         private CitaRepository _repoCita;
 
+        private bool dragging = false;
+        private Point startPoint = new Point(0, 0);
+
+        private void pnlTitulo_MouseDown(object sender, MouseEventArgs e)
+        {
+            dragging = true;
+            startPoint = new Point(e.X, e.Y);
+        }
+
+        private void pnlTitulo_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (dragging)
+            {
+                Point p = PointToScreen(e.Location);
+                this.Location = new Point(p.X - startPoint.X, p.Y - startPoint.Y);
+            }
+        }
+
+        private void pnlTitulo_MouseUp(object sender, MouseEventArgs e)
+        {
+            dragging = false;
+        }
+
         public EditarCita(CitaEntidad cita)
         {
             InitializeComponent();
+
+            this.Size = new Size(345, 620);
+            this.MinimumSize = this.Size;
+            this.MaximumSize = this.Size;
+
             _citaOriginal = cita;
             _citaEditada = new CitaEntidad
             {
@@ -46,6 +74,7 @@ namespace Proyecto_barberia
         {
             CargarCombos();
             CargarDatosActuales();
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void CargarCombos()
@@ -175,6 +204,11 @@ namespace Proyecto_barberia
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
+            this.Close();
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
             this.Close();
         }
 
