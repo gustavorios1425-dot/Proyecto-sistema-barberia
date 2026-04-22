@@ -17,7 +17,10 @@ namespace Proyecto_barberia.Database
 
         private DatabaseManager()
         {
-            string dbPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "barberia.db");
+            string appDataFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "LegendaryBarber");
+            if (!Directory.Exists(appDataFolder))
+                Directory.CreateDirectory(appDataFolder);
+            string dbPath = Path.Combine(appDataFolder, "barberia.db");
             _connectionString = $"Data Source={dbPath};Version=3;";
             InitializeDatabase();
         }
