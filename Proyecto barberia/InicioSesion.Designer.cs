@@ -31,7 +31,7 @@ namespace Proyecto_barberia
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InicioSesion));
-            this.panelSuperior = new System.Windows.Forms.Panel();
+            this.pnlCentral = new System.Windows.Forms.Panel();
             this.linkCrearCuenta = new System.Windows.Forms.LinkLabel();
             this.lblNoTienesCuenta = new System.Windows.Forms.Label();
             this.linkRecuperar = new System.Windows.Forms.LinkLabel();
@@ -47,32 +47,38 @@ namespace Proyecto_barberia
             this.lblTituloLB = new System.Windows.Forms.Label();
             this.lblSubTitulo = new System.Windows.Forms.Label();
             this.picBoxLogo = new System.Windows.Forms.PictureBox();
-            this.panelSuperior.SuspendLayout();
+            this.pnlSuperior = new System.Windows.Forms.Panel();
+            this.btnCerrar = new System.Windows.Forms.Button();
+            this.btnModoVentana = new System.Windows.Forms.Button();
+            this.btnMinimizar = new System.Windows.Forms.Button();
+            this.pnlInferior = new System.Windows.Forms.Panel();
+            this.pnlCentral.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxOculContra)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxLogo)).BeginInit();
+            this.pnlSuperior.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panelSuperior
+            // pnlCentral
             // 
-            this.panelSuperior.AllowDrop = true;
-            this.panelSuperior.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.panelSuperior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.panelSuperior.Controls.Add(this.linkCrearCuenta);
-            this.panelSuperior.Controls.Add(this.lblNoTienesCuenta);
-            this.panelSuperior.Controls.Add(this.linkRecuperar);
-            this.panelSuperior.Controls.Add(this.btnIniciarSesion);
-            this.panelSuperior.Controls.Add(this.label7);
-            this.panelSuperior.Controls.Add(this.txtUsuario);
-            this.panelSuperior.Controls.Add(this.label6);
-            this.panelSuperior.Controls.Add(this.label5);
-            this.panelSuperior.Controls.Add(this.label4);
-            this.panelSuperior.Controls.Add(this.panel1);
-            this.panelSuperior.Location = new System.Drawing.Point(251, 347);
-            this.panelSuperior.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panelSuperior.Name = "panelSuperior";
-            this.panelSuperior.Size = new System.Drawing.Size(381, 430);
-            this.panelSuperior.TabIndex = 0;
+            this.pnlCentral.AllowDrop = true;
+            this.pnlCentral.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.pnlCentral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.pnlCentral.Controls.Add(this.linkCrearCuenta);
+            this.pnlCentral.Controls.Add(this.lblNoTienesCuenta);
+            this.pnlCentral.Controls.Add(this.linkRecuperar);
+            this.pnlCentral.Controls.Add(this.btnIniciarSesion);
+            this.pnlCentral.Controls.Add(this.label7);
+            this.pnlCentral.Controls.Add(this.txtUsuario);
+            this.pnlCentral.Controls.Add(this.label6);
+            this.pnlCentral.Controls.Add(this.label5);
+            this.pnlCentral.Controls.Add(this.label4);
+            this.pnlCentral.Controls.Add(this.panel1);
+            this.pnlCentral.Location = new System.Drawing.Point(357, 420);
+            this.pnlCentral.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pnlCentral.Name = "pnlCentral";
+            this.pnlCentral.Size = new System.Drawing.Size(381, 430);
+            this.pnlCentral.TabIndex = 0;
             // 
             // linkCrearCuenta
             // 
@@ -83,7 +89,7 @@ namespace Proyecto_barberia
             this.linkCrearCuenta.Location = new System.Drawing.Point(208, 384);
             this.linkCrearCuenta.Name = "linkCrearCuenta";
             this.linkCrearCuenta.Size = new System.Drawing.Size(120, 25);
-            this.linkCrearCuenta.TabIndex = 9;
+            this.linkCrearCuenta.TabIndex = 5;
             this.linkCrearCuenta.TabStop = true;
             this.linkCrearCuenta.Text = "Regístrate";
             this.linkCrearCuenta.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -92,12 +98,13 @@ namespace Proyecto_barberia
             // lblNoTienesCuenta
             // 
             this.lblNoTienesCuenta.AutoSize = true;
+            this.lblNoTienesCuenta.Enabled = false;
             this.lblNoTienesCuenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNoTienesCuenta.ForeColor = System.Drawing.Color.DimGray;
             this.lblNoTienesCuenta.Location = new System.Drawing.Point(37, 386);
             this.lblNoTienesCuenta.Name = "lblNoTienesCuenta";
             this.lblNoTienesCuenta.Size = new System.Drawing.Size(165, 22);
-            this.lblNoTienesCuenta.TabIndex = 8;
+            this.lblNoTienesCuenta.TabIndex = 0;
             this.lblNoTienesCuenta.Text = "¿No tienes cuenta?";
             // 
             // linkRecuperar
@@ -109,7 +116,7 @@ namespace Proyecto_barberia
             this.linkRecuperar.Location = new System.Drawing.Point(74, 344);
             this.linkRecuperar.Name = "linkRecuperar";
             this.linkRecuperar.Size = new System.Drawing.Size(219, 22);
-            this.linkRecuperar.TabIndex = 7;
+            this.linkRecuperar.TabIndex = 4;
             this.linkRecuperar.TabStop = true;
             this.linkRecuperar.Text = "¿Olvidaste tu contraseña?";
             this.linkRecuperar.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkRecuperarClicked);
@@ -125,7 +132,7 @@ namespace Proyecto_barberia
             this.btnIniciarSesion.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnIniciarSesion.Name = "btnIniciarSesion";
             this.btnIniciarSesion.Size = new System.Drawing.Size(325, 48);
-            this.btnIniciarSesion.TabIndex = 6;
+            this.btnIniciarSesion.TabIndex = 3;
             this.btnIniciarSesion.Text = "Iniciar Sesión";
             this.btnIniciarSesion.UseVisualStyleBackColor = false;
             this.btnIniciarSesion.Click += new System.EventHandler(this.btnIniciarSesion_Click);
@@ -139,7 +146,7 @@ namespace Proyecto_barberia
             this.label7.Location = new System.Drawing.Point(19, 183);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(133, 25);
-            this.label7.TabIndex = 4;
+            this.label7.TabIndex = 0;
             this.label7.Text = "Contraseña";
             // 
             // txtUsuario
@@ -153,7 +160,7 @@ namespace Proyecto_barberia
             this.txtUsuario.Multiline = true;
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(326, 44);
-            this.txtUsuario.TabIndex = 3;
+            this.txtUsuario.TabIndex = 1;
             this.txtUsuario.Text = "Tu usuario";
             // 
             // label6
@@ -164,7 +171,7 @@ namespace Proyecto_barberia
             this.label6.Location = new System.Drawing.Point(18, 93);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(93, 25);
-            this.label6.TabIndex = 2;
+            this.label6.TabIndex = 0;
             this.label6.Text = "Usuario";
             // 
             // label5
@@ -175,7 +182,7 @@ namespace Proyecto_barberia
             this.label5.Location = new System.Drawing.Point(19, 54);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(329, 22);
-            this.label5.TabIndex = 1;
+            this.label5.TabIndex = 0;
             this.label5.Text = "Ingresa tus credenciales para continuar.";
             // 
             // label4
@@ -201,6 +208,7 @@ namespace Proyecto_barberia
             // 
             // picBoxOculContra
             // 
+            this.picBoxOculContra.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.picBoxOculContra.BackColor = System.Drawing.Color.WhiteSmoke;
             this.picBoxOculContra.Image = global::Proyecto_barberia.Properties.Resources.esconder;
             this.picBoxOculContra.Location = new System.Drawing.Point(272, 0);
@@ -224,8 +232,8 @@ namespace Proyecto_barberia
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(325, 44);
-            this.txtPassword.TabIndex = 5;
-            this.txtPassword.Text = "********";
+            this.txtPassword.TabIndex = 2;
+            this.txtPassword.Text = "******";
             // 
             // lblTituloLB
             // 
@@ -233,10 +241,10 @@ namespace Proyecto_barberia
             this.lblTituloLB.BackColor = System.Drawing.Color.Transparent;
             this.lblTituloLB.Font = new System.Drawing.Font("Georgia", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTituloLB.ForeColor = System.Drawing.Color.White;
-            this.lblTituloLB.Location = new System.Drawing.Point(208, 219);
+            this.lblTituloLB.Location = new System.Drawing.Point(314, 292);
             this.lblTituloLB.Name = "lblTituloLB";
             this.lblTituloLB.Size = new System.Drawing.Size(460, 66);
-            this.lblTituloLB.TabIndex = 1;
+            this.lblTituloLB.TabIndex = 0;
             this.lblTituloLB.Text = "Legendary Barber";
             this.lblTituloLB.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -246,10 +254,10 @@ namespace Proyecto_barberia
             this.lblSubTitulo.AutoSize = true;
             this.lblSubTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSubTitulo.ForeColor = System.Drawing.Color.DimGray;
-            this.lblSubTitulo.Location = new System.Drawing.Point(270, 285);
+            this.lblSubTitulo.Location = new System.Drawing.Point(376, 358);
             this.lblSubTitulo.Name = "lblSubTitulo";
             this.lblSubTitulo.Size = new System.Drawing.Size(345, 29);
-            this.lblSubTitulo.TabIndex = 3;
+            this.lblSubTitulo.TabIndex = 0;
             this.lblSubTitulo.Text = "Sistema de gestión profesional";
             this.lblSubTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -257,7 +265,7 @@ namespace Proyecto_barberia
             // 
             this.picBoxLogo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.picBoxLogo.Image = global::Proyecto_barberia.Properties.Resources.Logo;
-            this.picBoxLogo.Location = new System.Drawing.Point(251, 13);
+            this.picBoxLogo.Location = new System.Drawing.Point(357, 86);
             this.picBoxLogo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.picBoxLogo.Name = "picBoxLogo";
             this.picBoxLogo.Size = new System.Drawing.Size(381, 202);
@@ -265,16 +273,88 @@ namespace Proyecto_barberia
             this.picBoxLogo.TabIndex = 5;
             this.picBoxLogo.TabStop = false;
             // 
+            // pnlSuperior
+            // 
+            this.pnlSuperior.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlSuperior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.pnlSuperior.Controls.Add(this.btnMinimizar);
+            this.pnlSuperior.Controls.Add(this.btnModoVentana);
+            this.pnlSuperior.Controls.Add(this.btnCerrar);
+            this.pnlSuperior.Location = new System.Drawing.Point(0, 0);
+            this.pnlSuperior.Name = "pnlSuperior";
+            this.pnlSuperior.Size = new System.Drawing.Size(1104, 40);
+            this.pnlSuperior.TabIndex = 6;
+            // 
+            // btnCerrar
+            // 
+            this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCerrar.FlatAppearance.BorderSize = 0;
+            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCerrar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.btnCerrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.btnCerrar.Location = new System.Drawing.Point(1064, 0);
+            this.btnCerrar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(40, 40);
+            this.btnCerrar.TabIndex = 8;
+            this.btnCerrar.Text = "x";
+            this.btnCerrar.UseVisualStyleBackColor = true;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            // 
+            // btnModoVentana
+            // 
+            this.btnModoVentana.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnModoVentana.FlatAppearance.BorderSize = 0;
+            this.btnModoVentana.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModoVentana.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold);
+            this.btnModoVentana.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.btnModoVentana.Location = new System.Drawing.Point(1023, 0);
+            this.btnModoVentana.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnModoVentana.Name = "btnModoVentana";
+            this.btnModoVentana.Size = new System.Drawing.Size(40, 40);
+            this.btnModoVentana.TabIndex = 7;
+            this.btnModoVentana.Text = "❐";
+            this.btnModoVentana.UseVisualStyleBackColor = true;
+            // 
+            // btnMinimizar
+            // 
+            this.btnMinimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMinimizar.FlatAppearance.BorderSize = 0;
+            this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMinimizar.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            this.btnMinimizar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.btnMinimizar.Location = new System.Drawing.Point(982, 0);
+            this.btnMinimizar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnMinimizar.Name = "btnMinimizar";
+            this.btnMinimizar.Size = new System.Drawing.Size(40, 40);
+            this.btnMinimizar.TabIndex = 6;
+            this.btnMinimizar.Text = "—";
+            this.btnMinimizar.UseVisualStyleBackColor = true;
+            // 
+            // pnlInferior
+            // 
+            this.pnlInferior.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlInferior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.pnlInferior.Location = new System.Drawing.Point(0, 912);
+            this.pnlInferior.Name = "pnlInferior";
+            this.pnlInferior.Size = new System.Drawing.Size(1104, 60);
+            this.pnlInferior.TabIndex = 7;
+            // 
             // InicioSesion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.ClientSize = new System.Drawing.Size(920, 809);
+            this.ClientSize = new System.Drawing.Size(1104, 972);
+            this.Controls.Add(this.pnlInferior);
+            this.Controls.Add(this.pnlSuperior);
             this.Controls.Add(this.lblSubTitulo);
             this.Controls.Add(this.lblTituloLB);
-            this.Controls.Add(this.panelSuperior);
+            this.Controls.Add(this.pnlCentral);
             this.Controls.Add(this.picBoxLogo);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MinimumSize = new System.Drawing.Size(942, 865);
@@ -283,12 +363,13 @@ namespace Proyecto_barberia
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Legendary Barber";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.panelSuperior.ResumeLayout(false);
-            this.panelSuperior.PerformLayout();
+            this.pnlCentral.ResumeLayout(false);
+            this.pnlCentral.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxOculContra)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxLogo)).EndInit();
+            this.pnlSuperior.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -296,7 +377,7 @@ namespace Proyecto_barberia
 
         #endregion
 
-        private Panel panelSuperior;
+        private Panel pnlCentral;
         private Label lblTituloLB;
         private Label lblSubTitulo;
         private PictureBox picBoxLogo;
@@ -312,6 +393,11 @@ namespace Proyecto_barberia
         private LinkLabel linkCrearCuenta;
         private Panel panel1;
         private PictureBox picBoxOculContra;
+        private Panel pnlSuperior;
+        private Button btnCerrar;
+        private Button btnModoVentana;
+        private Button btnMinimizar;
+        private Panel pnlInferior;
     }
 }
 

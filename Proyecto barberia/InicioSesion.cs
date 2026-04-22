@@ -17,9 +17,9 @@ namespace Proyecto_barberia
             InitializeComponent();
         }
 
-        private void panelSuperior_Paint(object sender, PaintEventArgs e)
+        private void pnlCentral_Paint(object sender, PaintEventArgs e)
         {
-            panelSuperior.BackColor = Color.FromArgb(45, 45, 45);
+            pnlCentral.BackColor = Color.FromArgb(45, 45, 45);
         }
 
         private void linkCrearCuenta_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -146,6 +146,11 @@ namespace Proyecto_barberia
         {
             txtUsuario.Text = "Tu Usuario";
             txtPassword.Text = "********";
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         /*
