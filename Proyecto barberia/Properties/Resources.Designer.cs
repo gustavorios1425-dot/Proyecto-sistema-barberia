@@ -153,6 +153,16 @@ namespace Proyecto_barberia.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap LogoJIGSinFondo {
+            get {
+                object obj = ResourceManager.GetObject("LogoJIGSinFondo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Lupa {
             get {
                 object obj = ResourceManager.GetObject("Lupa", resourceCulture);

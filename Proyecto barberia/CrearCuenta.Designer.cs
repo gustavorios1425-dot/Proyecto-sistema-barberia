@@ -2,15 +2,8 @@
 {
     partial class CrearCuenta
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -20,12 +13,6 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
-
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
@@ -48,9 +35,15 @@
             this.picBoxLogo = new System.Windows.Forms.PictureBox();
             this.lblSubTitulo = new System.Windows.Forms.Label();
             this.lblTituloLB = new System.Windows.Forms.Label();
+            this.pnlSuperior = new System.Windows.Forms.Panel();
+            this.btnMinimizar = new System.Windows.Forms.Button();
+            this.btnMaximizar = new System.Windows.Forms.Button();
+            this.btnCerrar = new System.Windows.Forms.Button();
+            this.pnlInferior = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxOculContra)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxLogo)).BeginInit();
+            this.pnlSuperior.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -73,10 +66,10 @@
             this.panel1.Controls.Add(this.lblNombres);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(255, 336);
+            this.panel1.Location = new System.Drawing.Point(342, 364);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(374, 641);
+            this.panel1.Size = new System.Drawing.Size(415, 643);
             this.panel1.TabIndex = 0;
             // 
             // txtUsuario
@@ -85,7 +78,7 @@
             this.txtUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold);
             this.txtUsuario.ForeColor = System.Drawing.Color.DimGray;
-            this.txtUsuario.Location = new System.Drawing.Point(21, 293);
+            this.txtUsuario.Location = new System.Drawing.Point(44, 309);
             this.txtUsuario.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtUsuario.Multiline = true;
             this.txtUsuario.Name = "txtUsuario";
@@ -98,7 +91,7 @@
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold);
             this.lblUsuario.ForeColor = System.Drawing.Color.White;
-            this.lblUsuario.Location = new System.Drawing.Point(20, 264);
+            this.lblUsuario.Location = new System.Drawing.Point(43, 280);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(93, 25);
             this.lblUsuario.TabIndex = 14;
@@ -110,7 +103,7 @@
             this.linkIniciarSesion.AutoSize = true;
             this.linkIniciarSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold);
             this.linkIniciarSesion.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(172)))), ((int)(((byte)(107)))));
-            this.linkIniciarSesion.Location = new System.Drawing.Point(222, 586);
+            this.linkIniciarSesion.Location = new System.Drawing.Point(245, 602);
             this.linkIniciarSesion.Name = "linkIniciarSesion";
             this.linkIniciarSesion.Size = new System.Drawing.Size(144, 25);
             this.linkIniciarSesion.TabIndex = 13;
@@ -122,7 +115,7 @@
             // 
             this.picBoxOculContra.BackColor = System.Drawing.Color.WhiteSmoke;
             this.picBoxOculContra.Image = global::Proyecto_barberia.Properties.Resources.esconder;
-            this.picBoxOculContra.Location = new System.Drawing.Point(299, 457);
+            this.picBoxOculContra.Location = new System.Drawing.Point(322, 473);
             this.picBoxOculContra.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.picBoxOculContra.Name = "picBoxOculContra";
             this.picBoxOculContra.Size = new System.Drawing.Size(53, 40);
@@ -137,7 +130,7 @@
             this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold);
             this.txtPassword.ForeColor = System.Drawing.Color.DimGray;
-            this.txtPassword.Location = new System.Drawing.Point(21, 457);
+            this.txtPassword.Location = new System.Drawing.Point(44, 473);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPassword.Multiline = true;
             this.txtPassword.Name = "txtPassword";
@@ -145,6 +138,7 @@
             this.txtPassword.Size = new System.Drawing.Size(331, 40);
             this.txtPassword.TabIndex = 9;
             this.txtPassword.Text = "********";
+            this.txtPassword.UseSystemPasswordChar = true;
             // 
             // txtNombres
             // 
@@ -152,7 +146,7 @@
             this.txtNombres.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtNombres.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold);
             this.txtNombres.ForeColor = System.Drawing.Color.DimGray;
-            this.txtNombres.Location = new System.Drawing.Point(21, 122);
+            this.txtNombres.Location = new System.Drawing.Point(44, 138);
             this.txtNombres.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtNombres.Multiline = true;
             this.txtNombres.Name = "txtNombres";
@@ -166,7 +160,7 @@
             this.txtApellidos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtApellidos.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold);
             this.txtApellidos.ForeColor = System.Drawing.Color.DimGray;
-            this.txtApellidos.Location = new System.Drawing.Point(21, 209);
+            this.txtApellidos.Location = new System.Drawing.Point(44, 225);
             this.txtApellidos.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtApellidos.Multiline = true;
             this.txtApellidos.Name = "txtApellidos";
@@ -179,7 +173,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label7.ForeColor = System.Drawing.Color.DimGray;
-            this.label7.Location = new System.Drawing.Point(19, 589);
+            this.label7.Location = new System.Drawing.Point(42, 605);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(199, 22);
             this.label7.TabIndex = 11;
@@ -191,7 +185,7 @@
             this.btnCrearCuenta.FlatAppearance.BorderSize = 0;
             this.btnCrearCuenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCrearCuenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold);
-            this.btnCrearCuenta.Location = new System.Drawing.Point(21, 521);
+            this.btnCrearCuenta.Location = new System.Drawing.Point(44, 537);
             this.btnCrearCuenta.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnCrearCuenta.Name = "btnCrearCuenta";
             this.btnCrearCuenta.Size = new System.Drawing.Size(331, 48);
@@ -205,7 +199,7 @@
             this.lblPassword.AutoSize = true;
             this.lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold);
             this.lblPassword.ForeColor = System.Drawing.Color.White;
-            this.lblPassword.Location = new System.Drawing.Point(20, 428);
+            this.lblPassword.Location = new System.Drawing.Point(43, 444);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(133, 25);
             this.lblPassword.TabIndex = 8;
@@ -217,7 +211,7 @@
             this.txtCorreo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold);
             this.txtCorreo.ForeColor = System.Drawing.Color.DimGray;
-            this.txtCorreo.Location = new System.Drawing.Point(21, 375);
+            this.txtCorreo.Location = new System.Drawing.Point(44, 391);
             this.txtCorreo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtCorreo.Multiline = true;
             this.txtCorreo.Name = "txtCorreo";
@@ -230,7 +224,7 @@
             this.lblCorreo.AutoSize = true;
             this.lblCorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold);
             this.lblCorreo.ForeColor = System.Drawing.Color.White;
-            this.lblCorreo.Location = new System.Drawing.Point(20, 346);
+            this.lblCorreo.Location = new System.Drawing.Point(43, 362);
             this.lblCorreo.Name = "lblCorreo";
             this.lblCorreo.Size = new System.Drawing.Size(208, 25);
             this.lblCorreo.TabIndex = 6;
@@ -241,7 +235,7 @@
             this.lblApellidos.AutoSize = true;
             this.lblApellidos.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold);
             this.lblApellidos.ForeColor = System.Drawing.Color.White;
-            this.lblApellidos.Location = new System.Drawing.Point(20, 180);
+            this.lblApellidos.Location = new System.Drawing.Point(43, 196);
             this.lblApellidos.Name = "lblApellidos";
             this.lblApellidos.Size = new System.Drawing.Size(109, 25);
             this.lblApellidos.TabIndex = 4;
@@ -252,7 +246,7 @@
             this.lblNombres.AutoSize = true;
             this.lblNombres.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold);
             this.lblNombres.ForeColor = System.Drawing.Color.White;
-            this.lblNombres.Location = new System.Drawing.Point(20, 93);
+            this.lblNombres.Location = new System.Drawing.Point(43, 109);
             this.lblNombres.Name = "lblNombres";
             this.lblNombres.Size = new System.Drawing.Size(105, 25);
             this.lblNombres.TabIndex = 2;
@@ -263,18 +257,19 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label2.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label2.Location = new System.Drawing.Point(20, 46);
+            this.label2.Location = new System.Drawing.Point(85, 62);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(263, 22);
+            this.label2.Size = new System.Drawing.Size(258, 22);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Registra los datos de tu cuenta.";
+            this.label2.Text = "Registra los datos de tu cuenta";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(16, 12);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(172)))), ((int)(((byte)(107)))));
+            this.label1.Location = new System.Drawing.Point(131, 25);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(148, 25);
             this.label1.TabIndex = 0;
@@ -284,7 +279,7 @@
             // 
             this.picBoxLogo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.picBoxLogo.Image = global::Proyecto_barberia.Properties.Resources.Logo;
-            this.picBoxLogo.Location = new System.Drawing.Point(255, 13);
+            this.picBoxLogo.Location = new System.Drawing.Point(357, 60);
             this.picBoxLogo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.picBoxLogo.Name = "picBoxLogo";
             this.picBoxLogo.Size = new System.Drawing.Size(381, 202);
@@ -296,9 +291,9 @@
             // 
             this.lblSubTitulo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblSubTitulo.AutoSize = true;
-            this.lblSubTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSubTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblSubTitulo.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblSubTitulo.Location = new System.Drawing.Point(274, 285);
+            this.lblSubTitulo.Location = new System.Drawing.Point(376, 315);
             this.lblSubTitulo.Name = "lblSubTitulo";
             this.lblSubTitulo.Size = new System.Drawing.Size(345, 29);
             this.lblSubTitulo.TabIndex = 7;
@@ -308,62 +303,141 @@
             // 
             this.lblTituloLB.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblTituloLB.BackColor = System.Drawing.Color.Transparent;
-            this.lblTituloLB.Font = new System.Drawing.Font("Georgia", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTituloLB.ForeColor = System.Drawing.Color.White;
-            this.lblTituloLB.Location = new System.Drawing.Point(212, 219);
+            this.lblTituloLB.Font = new System.Drawing.Font("Georgia", 22.2F, System.Drawing.FontStyle.Bold);
+            this.lblTituloLB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(172)))), ((int)(((byte)(107)))));
+            this.lblTituloLB.Location = new System.Drawing.Point(314, 258);
             this.lblTituloLB.Name = "lblTituloLB";
             this.lblTituloLB.Size = new System.Drawing.Size(460, 66);
             this.lblTituloLB.TabIndex = 6;
             this.lblTituloLB.Text = "Legendary Barber";
             this.lblTituloLB.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
+            // pnlSuperior
+            // 
+            this.pnlSuperior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.pnlSuperior.Controls.Add(this.btnMinimizar);
+            this.pnlSuperior.Controls.Add(this.btnMaximizar);
+            this.pnlSuperior.Controls.Add(this.btnCerrar);
+            this.pnlSuperior.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlSuperior.Location = new System.Drawing.Point(0, 0);
+            this.pnlSuperior.Name = "pnlSuperior";
+            this.pnlSuperior.Size = new System.Drawing.Size(1104, 50);
+            this.pnlSuperior.TabIndex = 10;
+            this.pnlSuperior.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlTitulo_MouseDown);
+            this.pnlSuperior.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnlTitulo_MouseMove);
+            this.pnlSuperior.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pnlTitulo_MouseUp);
+            // 
+            // btnMinimizar
+            // 
+            this.btnMinimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMinimizar.FlatAppearance.BorderSize = 0;
+            this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMinimizar.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            this.btnMinimizar.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnMinimizar.Location = new System.Drawing.Point(965, 0);
+            this.btnMinimizar.Name = "btnMinimizar";
+            this.btnMinimizar.Size = new System.Drawing.Size(45, 45);
+            this.btnMinimizar.TabIndex = 1;
+            this.btnMinimizar.Text = "—";
+            this.btnMinimizar.UseVisualStyleBackColor = true;
+            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
+            // 
+            // btnMaximizar
+            // 
+            this.btnMaximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMaximizar.FlatAppearance.BorderSize = 0;
+            this.btnMaximizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMaximizar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.btnMaximizar.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnMaximizar.Location = new System.Drawing.Point(1012, 0);
+            this.btnMaximizar.Name = "btnMaximizar";
+            this.btnMaximizar.Size = new System.Drawing.Size(45, 45);
+            this.btnMaximizar.TabIndex = 2;
+            this.btnMaximizar.Text = "🗖";
+            this.btnMaximizar.UseVisualStyleBackColor = true;
+            this.btnMaximizar.Click += new System.EventHandler(this.btnMaximizar_Click);
+            // 
+            // btnCerrar
+            // 
+            this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCerrar.FlatAppearance.BorderSize = 0;
+            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCerrar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.btnCerrar.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnCerrar.Location = new System.Drawing.Point(1059, 0);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(45, 45);
+            this.btnCerrar.TabIndex = 3;
+            this.btnCerrar.Text = "✕";
+            this.btnCerrar.UseVisualStyleBackColor = true;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            // 
+            // pnlInferior
+            // 
+            this.pnlInferior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.pnlInferior.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlInferior.Location = new System.Drawing.Point(0, 1036);
+            this.pnlInferior.Name = "pnlInferior";
+            this.pnlInferior.Size = new System.Drawing.Size(1104, 70);
+            this.pnlInferior.TabIndex = 11;
+            // 
             // CrearCuenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.ClientSize = new System.Drawing.Size(900, 1035);
+            this.ClientSize = new System.Drawing.Size(1104, 1106);
+            this.Controls.Add(this.pnlInferior);
+            this.Controls.Add(this.pnlSuperior);
             this.Controls.Add(this.picBoxLogo);
             this.Controls.Add(this.lblSubTitulo);
             this.Controls.Add(this.lblTituloLB);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.MinimumSize = new System.Drawing.Size(900, 1006);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MinimumSize = new System.Drawing.Size(900, 800);
             this.Name = "CrearCuenta";
             this.ShowIcon = false;
-            this.Text = "Crear Cuenta";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.CrearCuenta_MouseMove);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.InicioSesion_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.InicioSesion_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.InicioSesion_MouseUp);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxOculContra)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxLogo)).EndInit();
+            this.pnlSuperior.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
-        #endregion
-
+        // Declaración de controles (todos los originales más los nuevos)
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox txtUsuario;
+        private System.Windows.Forms.Label lblUsuario;
+        private System.Windows.Forms.LinkLabel linkIniciarSesion;
+        private System.Windows.Forms.PictureBox picBoxOculContra;
+        private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.TextBox txtNombres;
+        private System.Windows.Forms.TextBox txtApellidos;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnCrearCuenta;
+        private System.Windows.Forms.Label lblPassword;
+        private System.Windows.Forms.TextBox txtCorreo;
+        private System.Windows.Forms.Label lblCorreo;
+        private System.Windows.Forms.Label lblApellidos;
         private System.Windows.Forms.Label lblNombres;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtCorreo;
-        private System.Windows.Forms.Label lblCorreo;
-        private System.Windows.Forms.TextBox txtApellidos;
-        private System.Windows.Forms.Label lblApellidos;
-        private System.Windows.Forms.Button btnCrearCuenta;
-        private System.Windows.Forms.TextBox txtPassword;
-        private System.Windows.Forms.Label lblPassword;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.PictureBox picBoxOculContra;
-        private System.Windows.Forms.LinkLabel linkIniciarSesion;
-        private System.Windows.Forms.TextBox txtUsuario;
-        private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.PictureBox picBoxLogo;
         private System.Windows.Forms.Label lblSubTitulo;
         private System.Windows.Forms.Label lblTituloLB;
+        // Nuevos controles
+        private System.Windows.Forms.Panel pnlSuperior;
+        private System.Windows.Forms.Button btnMinimizar;
+        private System.Windows.Forms.Button btnMaximizar;
+        private System.Windows.Forms.Button btnCerrar;
+        private System.Windows.Forms.Panel pnlInferior;
     }
 }

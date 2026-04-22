@@ -41,19 +41,19 @@ namespace Proyecto_barberia
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlPassword = new System.Windows.Forms.Panel();
             this.picBoxOculContra = new System.Windows.Forms.PictureBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.lblTituloLB = new System.Windows.Forms.Label();
             this.lblSubTitulo = new System.Windows.Forms.Label();
             this.picBoxLogo = new System.Windows.Forms.PictureBox();
             this.pnlSuperior = new System.Windows.Forms.Panel();
-            this.btnCerrar = new System.Windows.Forms.Button();
-            this.btnModoVentana = new System.Windows.Forms.Button();
             this.btnMinimizar = new System.Windows.Forms.Button();
+            this.btnMaximizar = new System.Windows.Forms.Button();
+            this.btnCerrar = new System.Windows.Forms.Button();
             this.pnlInferior = new System.Windows.Forms.Panel();
             this.pnlCentral.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.pnlPassword.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxOculContra)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxLogo)).BeginInit();
             this.pnlSuperior.SuspendLayout();
@@ -73,12 +73,13 @@ namespace Proyecto_barberia
             this.pnlCentral.Controls.Add(this.label6);
             this.pnlCentral.Controls.Add(this.label5);
             this.pnlCentral.Controls.Add(this.label4);
-            this.pnlCentral.Controls.Add(this.panel1);
+            this.pnlCentral.Controls.Add(this.pnlPassword);
             this.pnlCentral.Location = new System.Drawing.Point(357, 420);
             this.pnlCentral.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnlCentral.Name = "pnlCentral";
-            this.pnlCentral.Size = new System.Drawing.Size(381, 430);
+            this.pnlCentral.Size = new System.Drawing.Size(415, 452);
             this.pnlCentral.TabIndex = 0;
+            this.pnlCentral.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlCentral_Paint);
             // 
             // linkCrearCuenta
             // 
@@ -86,7 +87,7 @@ namespace Proyecto_barberia
             this.linkCrearCuenta.AutoSize = true;
             this.linkCrearCuenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkCrearCuenta.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(172)))), ((int)(((byte)(107)))));
-            this.linkCrearCuenta.Location = new System.Drawing.Point(208, 384);
+            this.linkCrearCuenta.Location = new System.Drawing.Point(229, 396);
             this.linkCrearCuenta.Name = "linkCrearCuenta";
             this.linkCrearCuenta.Size = new System.Drawing.Size(120, 25);
             this.linkCrearCuenta.TabIndex = 5;
@@ -98,10 +99,9 @@ namespace Proyecto_barberia
             // lblNoTienesCuenta
             // 
             this.lblNoTienesCuenta.AutoSize = true;
-            this.lblNoTienesCuenta.Enabled = false;
             this.lblNoTienesCuenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNoTienesCuenta.ForeColor = System.Drawing.Color.DimGray;
-            this.lblNoTienesCuenta.Location = new System.Drawing.Point(37, 386);
+            this.lblNoTienesCuenta.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lblNoTienesCuenta.Location = new System.Drawing.Point(58, 398);
             this.lblNoTienesCuenta.Name = "lblNoTienesCuenta";
             this.lblNoTienesCuenta.Size = new System.Drawing.Size(165, 22);
             this.lblNoTienesCuenta.TabIndex = 0;
@@ -113,7 +113,7 @@ namespace Proyecto_barberia
             this.linkRecuperar.AutoSize = true;
             this.linkRecuperar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkRecuperar.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(154)))), ((int)(((byte)(175)))));
-            this.linkRecuperar.Location = new System.Drawing.Point(74, 344);
+            this.linkRecuperar.Location = new System.Drawing.Point(95, 356);
             this.linkRecuperar.Name = "linkRecuperar";
             this.linkRecuperar.Size = new System.Drawing.Size(219, 22);
             this.linkRecuperar.TabIndex = 4;
@@ -128,7 +128,7 @@ namespace Proyecto_barberia
             this.btnIniciarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIniciarSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIniciarSesion.ForeColor = System.Drawing.Color.Black;
-            this.btnIniciarSesion.Location = new System.Drawing.Point(24, 289);
+            this.btnIniciarSesion.Location = new System.Drawing.Point(45, 301);
             this.btnIniciarSesion.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnIniciarSesion.Name = "btnIniciarSesion";
             this.btnIniciarSesion.Size = new System.Drawing.Size(325, 48);
@@ -143,7 +143,7 @@ namespace Proyecto_barberia
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(19, 183);
+            this.label7.Location = new System.Drawing.Point(40, 190);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(133, 25);
             this.label7.TabIndex = 0;
@@ -151,24 +151,19 @@ namespace Proyecto_barberia
             // 
             // txtUsuario
             // 
-            this.txtUsuario.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsuario.ForeColor = System.Drawing.Color.DimGray;
-            this.txtUsuario.Location = new System.Drawing.Point(23, 122);
-            this.txtUsuario.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.txtUsuario.Location = new System.Drawing.Point(45, 133);
             this.txtUsuario.Multiline = true;
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(326, 44);
+            this.txtUsuario.Size = new System.Drawing.Size(325, 44);
             this.txtUsuario.TabIndex = 1;
-            this.txtUsuario.Text = "Tu usuario";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(18, 93);
+            this.label6.Location = new System.Drawing.Point(39, 100);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(93, 25);
             this.label6.TabIndex = 0;
@@ -176,35 +171,39 @@ namespace Proyecto_barberia
             // 
             // label5
             // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label5.Location = new System.Drawing.Point(19, 54);
+            this.label5.Location = new System.Drawing.Point(41, 56);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(329, 22);
+            this.label5.Size = new System.Drawing.Size(324, 22);
             this.label5.TabIndex = 0;
-            this.label5.Text = "Ingresa tus credenciales para continuar.";
+            this.label5.Text = "Ingresa tus credenciales para continuar";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label4
             // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(18, 20);
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(172)))), ((int)(((byte)(107)))));
+            this.label4.Location = new System.Drawing.Point(130, 23);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(155, 25);
             this.label4.TabIndex = 0;
             this.label4.Text = "Iniciar Sesión";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // panel1
+            // pnlPassword
             // 
-            this.panel1.Controls.Add(this.picBoxOculContra);
-            this.panel1.Controls.Add(this.txtPassword);
-            this.panel1.Location = new System.Drawing.Point(24, 212);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(325, 44);
-            this.panel1.TabIndex = 10;
+            this.pnlPassword.Controls.Add(this.picBoxOculContra);
+            this.pnlPassword.Controls.Add(this.txtPassword);
+            this.pnlPassword.Location = new System.Drawing.Point(45, 224);
+            this.pnlPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pnlPassword.Name = "pnlPassword";
+            this.pnlPassword.Size = new System.Drawing.Size(325, 44);
+            this.pnlPassword.TabIndex = 10;
             // 
             // picBoxOculContra
             // 
@@ -223,25 +222,21 @@ namespace Proyecto_barberia
             // txtPassword
             // 
             this.txtPassword.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold);
-            this.txtPassword.ForeColor = System.Drawing.Color.DimGray;
+            this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.txtPassword.Location = new System.Drawing.Point(0, 0);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPassword.Multiline = true;
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(325, 44);
             this.txtPassword.TabIndex = 2;
-            this.txtPassword.Text = "******";
             // 
             // lblTituloLB
             // 
             this.lblTituloLB.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblTituloLB.BackColor = System.Drawing.Color.Transparent;
             this.lblTituloLB.Font = new System.Drawing.Font("Georgia", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTituloLB.ForeColor = System.Drawing.Color.White;
-            this.lblTituloLB.Location = new System.Drawing.Point(314, 292);
+            this.lblTituloLB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(172)))), ((int)(((byte)(107)))));
+            this.lblTituloLB.Location = new System.Drawing.Point(326, 292);
             this.lblTituloLB.Name = "lblTituloLB";
             this.lblTituloLB.Size = new System.Drawing.Size(460, 66);
             this.lblTituloLB.TabIndex = 0;
@@ -253,7 +248,7 @@ namespace Proyecto_barberia
             this.lblSubTitulo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblSubTitulo.AutoSize = true;
             this.lblSubTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSubTitulo.ForeColor = System.Drawing.Color.DimGray;
+            this.lblSubTitulo.ForeColor = System.Drawing.Color.Gainsboro;
             this.lblSubTitulo.Location = new System.Drawing.Point(376, 358);
             this.lblSubTitulo.Name = "lblSubTitulo";
             this.lblSubTitulo.Size = new System.Drawing.Size(345, 29);
@@ -279,43 +274,15 @@ namespace Proyecto_barberia
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlSuperior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.pnlSuperior.Controls.Add(this.btnMinimizar);
-            this.pnlSuperior.Controls.Add(this.btnModoVentana);
+            this.pnlSuperior.Controls.Add(this.btnMaximizar);
             this.pnlSuperior.Controls.Add(this.btnCerrar);
             this.pnlSuperior.Location = new System.Drawing.Point(0, 0);
             this.pnlSuperior.Name = "pnlSuperior";
-            this.pnlSuperior.Size = new System.Drawing.Size(1104, 40);
+            this.pnlSuperior.Size = new System.Drawing.Size(1104, 50);
             this.pnlSuperior.TabIndex = 6;
-            // 
-            // btnCerrar
-            // 
-            this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCerrar.FlatAppearance.BorderSize = 0;
-            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
-            this.btnCerrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.btnCerrar.Location = new System.Drawing.Point(1064, 0);
-            this.btnCerrar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(40, 40);
-            this.btnCerrar.TabIndex = 8;
-            this.btnCerrar.Text = "x";
-            this.btnCerrar.UseVisualStyleBackColor = true;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
-            // 
-            // btnModoVentana
-            // 
-            this.btnModoVentana.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnModoVentana.FlatAppearance.BorderSize = 0;
-            this.btnModoVentana.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModoVentana.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold);
-            this.btnModoVentana.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.btnModoVentana.Location = new System.Drawing.Point(1023, 0);
-            this.btnModoVentana.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnModoVentana.Name = "btnModoVentana";
-            this.btnModoVentana.Size = new System.Drawing.Size(40, 40);
-            this.btnModoVentana.TabIndex = 7;
-            this.btnModoVentana.Text = "❐";
-            this.btnModoVentana.UseVisualStyleBackColor = true;
+            this.pnlSuperior.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlTitulo_MouseDown);
+            this.pnlSuperior.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnlTitulo_MouseMove);
+            this.pnlSuperior.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pnlTitulo_MouseUp);
             // 
             // btnMinimizar
             // 
@@ -323,23 +290,56 @@ namespace Proyecto_barberia
             this.btnMinimizar.FlatAppearance.BorderSize = 0;
             this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimizar.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
-            this.btnMinimizar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.btnMinimizar.Location = new System.Drawing.Point(982, 0);
+            this.btnMinimizar.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnMinimizar.Location = new System.Drawing.Point(965, 0);
             this.btnMinimizar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnMinimizar.Name = "btnMinimizar";
-            this.btnMinimizar.Size = new System.Drawing.Size(40, 40);
+            this.btnMinimizar.Size = new System.Drawing.Size(45, 45);
             this.btnMinimizar.TabIndex = 6;
             this.btnMinimizar.Text = "—";
             this.btnMinimizar.UseVisualStyleBackColor = true;
+            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
+            // 
+            // btnMaximizar
+            // 
+            this.btnMaximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMaximizar.FlatAppearance.BorderSize = 0;
+            this.btnMaximizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMaximizar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.btnMaximizar.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnMaximizar.Location = new System.Drawing.Point(1012, 0);
+            this.btnMaximizar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnMaximizar.Name = "btnMaximizar";
+            this.btnMaximizar.Size = new System.Drawing.Size(45, 45);
+            this.btnMaximizar.TabIndex = 2;
+            this.btnMaximizar.Text = "🗖";
+            this.btnMaximizar.UseVisualStyleBackColor = true;
+            this.btnMaximizar.Click += new System.EventHandler(this.btnMaximizar_Click);
+            // 
+            // btnCerrar
+            // 
+            this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCerrar.FlatAppearance.BorderSize = 0;
+            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCerrar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.btnCerrar.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnCerrar.Location = new System.Drawing.Point(1059, 0);
+            this.btnCerrar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(45, 45);
+            this.btnCerrar.TabIndex = 8;
+            this.btnCerrar.Text = "x";
+            this.btnCerrar.UseVisualStyleBackColor = true;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // pnlInferior
             // 
             this.pnlInferior.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlInferior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.pnlInferior.Location = new System.Drawing.Point(0, 912);
+            this.pnlInferior.Location = new System.Drawing.Point(0, 902);
             this.pnlInferior.Name = "pnlInferior";
-            this.pnlInferior.Size = new System.Drawing.Size(1104, 60);
+            this.pnlInferior.Size = new System.Drawing.Size(1104, 70);
             this.pnlInferior.TabIndex = 7;
             // 
             // InicioSesion
@@ -357,16 +357,19 @@ namespace Proyecto_barberia
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.MinimumSize = new System.Drawing.Size(942, 865);
+            this.MinimumSize = new System.Drawing.Size(1104, 972);
             this.Name = "InicioSesion";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Legendary Barber";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlTitulo_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.InicioSesion_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.InicioSesion_MouseUp);
             this.pnlCentral.ResumeLayout(false);
             this.pnlCentral.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.pnlPassword.ResumeLayout(false);
+            this.pnlPassword.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxOculContra)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxLogo)).EndInit();
             this.pnlSuperior.ResumeLayout(false);
@@ -391,11 +394,11 @@ namespace Proyecto_barberia
         private LinkLabel linkRecuperar;
         private Label lblNoTienesCuenta;
         private LinkLabel linkCrearCuenta;
-        private Panel panel1;
+        private Panel pnlPassword;
         private PictureBox picBoxOculContra;
         private Panel pnlSuperior;
         private Button btnCerrar;
-        private Button btnModoVentana;
+        private Button btnMaximizar;
         private Button btnMinimizar;
         private Panel pnlInferior;
     }

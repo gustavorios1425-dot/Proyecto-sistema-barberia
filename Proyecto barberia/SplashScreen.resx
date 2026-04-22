@@ -117,50 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Clientes" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Clientes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="rtbDescripcion.Text" xml:space="preserve">
+    <value>Nuestra empresa se dedica a la creación y desarrollo de software a medida, diseñado para optimizar el rendimiento y la eficiencia operativa. Nuestro compromiso es entender los desafíos únicos de cada negocio para entregar productos seguros y centrados en el usuario que garanticen una ventaja competitiva en el mercado actual.
+</value>
   </data>
-  <data name="X-removebg-preview-convertido-a-pequeño" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\X-removebg-preview-convertido-a-pequeño.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="rtbVisionTexto.Text" xml:space="preserve">
+    <value>Ser la compañía líder a nivel global en el desarrollo de ecosistemas digitales, reconocida por transformar industrias mediante software innovador que redefine los límites de lo posible y mejora la vida de las personas en cada rincón del mundo.</value>
   </data>
-  <data name="Logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="X-removebg-preview" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\X-removebg-preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="cerrar-convertido-a-pequeño" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cerrar-convertido-a-pequeño.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="cerrar1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cerrar1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ojo-abierto" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ojo-abierto.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CerrarSesion" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CerrarSesion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Calendario" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Calendario.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="cerrar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cerrar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Medalla" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Medalla.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="esconder" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\esconder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="LibroAbierto" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\LibroAbierto.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Lupa" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Lupa.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="LogoJIGSinFondo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\LogoJIGSinFondo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="rtbMisionTexto.Text" xml:space="preserve">
+    <value>Proveer soluciones tecnológicas y arquitecturas de software robustas que permitan a nuestros usuarios optimizar sus procesos, garantizando siempre los más altos estándares de seguridad, escalabilidad y excelencia operativa.</value>
   </data>
 </root>

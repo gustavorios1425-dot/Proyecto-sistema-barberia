@@ -17,7 +17,7 @@ namespace Proyecto_barberia
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            // Iniciar con el formulario de login
+            //Application.Run(new SplashScreen());
             Application.Run(new InicioSesion());
         }
     }
